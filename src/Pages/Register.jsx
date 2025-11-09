@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
- 
- 
+import AuthContext from "../AuthContext/AuthContex";
+
 // import { FaEye } from "react-icons/fa";
 // import { IoMdEyeOff } from "react-icons/io";
- 
 
 const Register = () => {
+  const { userSignInWithGoogle } = useContext(AuthContext);
   // const handleRegister = (e) => {
   //   e.preventDefault();
   //   const displayName = e.target.name.value;
@@ -14,14 +14,24 @@ const Register = () => {
   //   const email = e.target.email.value;
   //   const password = e.target.password.value;
   //   console.log(displayName, photoURL, email, password);
-  //   const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-  //   if (!pattern.test(password)) {
-  //     // toast.error(
-  //     //   "Password must include at least 1 uppercase letter, at least 1 lowercase letter and minimum 6 characters"
-  //     // );
-  //     return;
-  //   }
+  //   // const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+  //   // // if (!pattern.test(password)) {
+  //   // //   // toast.error(
+  //   // //   //   "Password must include at least 1 uppercase letter, at least 1 lowercase letter and minimum 6 characters"
+  //   // //   // );
+  //   // //   return;
+  //   // // }
   // };
+  // Google Popup signin
+  const handleGoogle = () => {
+    userSignInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <>
@@ -76,7 +86,10 @@ const Register = () => {
                 </fieldset>
               </form>
 
-              <button className="btn bg-white text-black border-[#e5e5e5] mt-1">
+              <button
+                onClick={handleGoogle}
+                className="btn bg-white text-black border-[#e5e5e5] mt-1"
+              >
                 <svg
                   aria-label="Google logo"
                   width="16"

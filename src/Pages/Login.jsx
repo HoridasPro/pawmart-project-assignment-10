@@ -1,27 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
- 
- 
+import AuthContext from "../AuthContext/AuthContex";
+
 // import { FaEye } from "react-icons/fa";
 // import { IoMdEyeOff } from "react-icons/io";
- 
 
-const  Login = () => {
-  // const handleRegister = (e) => {
-  //   e.preventDefault();
-  //   const displayName = e.target.name.value;
-  //   const photoURL = e.target.photoURL.value;
-  //   const email = e.target.email.value;
-  //   const password = e.target.password.value;
-  //   console.log(displayName, photoURL, email, password);
-  //   const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-  //   if (!pattern.test(password)) {
-  //     // toast.error(
-  //     //   "Password must include at least 1 uppercase letter, at least 1 lowercase letter and minimum 6 characters"
-  //     // );
-  //     return;
-  //   }
-  // };
+const Login = () => {
+  const { userSignInWithGoogle } = useContext(AuthContext);
+  const handleGoogle = () => {
+    userSignInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <>
@@ -35,7 +29,7 @@ const  Login = () => {
             <div className="card-body">
               <form>
                 <fieldset className="fieldset">
-                  {/* Email input field */}                 
+                  {/* Email input field */}
                   <label className="label">Email</label>
                   <input
                     type="email"
@@ -43,7 +37,7 @@ const  Login = () => {
                     className="input"
                     placeholder="Email"
                     required
-                  />                
+                  />
                   {/* Password input field */}
                   <label className="label">Password</label>
                   <div className="relative">
@@ -60,7 +54,10 @@ const  Login = () => {
                 </fieldset>
               </form>
 
-              <button className="btn bg-white text-black border-[#e5e5e5] mt-1">
+              <button
+                onClick={handleGoogle}
+                className="btn bg-white text-black border-[#e5e5e5] mt-1"
+              >
                 <svg
                   aria-label="Google logo"
                   width="16"
@@ -91,7 +88,7 @@ const  Login = () => {
                 Login with Google
               </button>
               <p>
-                 New, to account create please ?
+                Don't have an account?
                 <Link
                   className="text-blue-500 hover:text-blue-800 font-bold text-xl ml-2"
                   to="/register"
@@ -107,4 +104,4 @@ const  Login = () => {
   );
 };
 
-export default  Login;
+export default Login;

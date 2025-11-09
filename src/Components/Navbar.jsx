@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import logoImg from "../assets/PawMart.png";
-
+import AuthContext from "../AuthContext/AuthContex";
 const Navbar = () => {
+  const { user, userSignOut } = useContext(AuthContext);
   const links = (
     <>
       <li>
@@ -11,10 +12,35 @@ const Navbar = () => {
       <li>
         <NavLink to="/petsAndSupplies">Pets & Supplies</NavLink>
       </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/addListing">Add Listing</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myListings">My Listings</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myOrders">My Orders</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
+
+  // Sign out
+  const handleSignOut = () => {
+    userSignOut()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm py-3 px-5">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,10 +75,44 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login" className="btn bg-gradient-to-br from-blue-900 via-blue-500 to-blue-500">
-          Login
-        </Link>
-        <Link to="/register" className="btn">Register</Link>
+        <div className="">
+          {user ? (
+            <Link to="/profile">
+              <div className="relative group">
+                <img
+                  className="w-10 h-10 rounded-full cursor-pointer"
+                  src={user?.photoURL}
+                  alt="User"
+                />
+                <span
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full 
+             bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 
+              group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+                >
+                  {user?.displayName || "Unknown User"}
+                </span>
+              </div>
+            </Link>
+          ) : (
+            <Link to="/login" className="btn">
+              Login
+            </Link>
+          )}
+        </div>
+
+        {user ? (
+          <Link
+            onClick={handleSignOut}
+            to="/"
+            className="btn bg-gradient-to-br from-blue-900 via-blue-500 to-blue-500"
+          >
+            SignOut
+          </Link>
+        ) : (
+          <Link to="/register" className="btn">
+            Register
+          </Link>
+        )}
       </div>
     </div>
   );
