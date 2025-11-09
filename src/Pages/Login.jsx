@@ -1,19 +1,39 @@
 import React, { useContext } from "react";
 import { Link } from "react-router";
 import AuthContext from "../AuthContext/AuthContex";
+import { toast } from "react-toastify";
 
 // import { FaEye } from "react-icons/fa";
 // import { IoMdEyeOff } from "react-icons/io";
 
 const Login = () => {
-  const { userSignInWithGoogle } = useContext(AuthContext);
+  const { userSignInWithGoogle, userLogin } = useContext(AuthContext);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    userLogin(email, password)
+      .then((result) => {
+        toast("Login successfull")
+        console.log(result.user);
+      })
+      .catch((error) => {
+        toast("Invalid email or password")
+        console.log(error.message);
+      });
+  };
+
   const handleGoogle = () => {
     userSignInWithGoogle()
       .then((result) => {
         console.log(result.user);
+        toast("Google Login Succsessfull")
       })
       .catch((error) => {
         console.log(error.message);
+        toast("Something is wrong")
       });
   };
 
@@ -27,7 +47,7 @@ const Login = () => {
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
-              <form>
+              <form onSubmit={handleLogin}>
                 <fieldset className="fieldset">
                   {/* Email input field */}
                   <label className="label">Email</label>

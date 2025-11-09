@@ -1,35 +1,67 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import AuthContext from "../AuthContext/AuthContex";
+import { toast } from "react-toastify";
 
 // import { FaEye } from "react-icons/fa";
 // import { IoMdEyeOff } from "react-icons/io";
 
 const Register = () => {
-  const { userSignInWithGoogle } = useContext(AuthContext);
-  // const handleRegister = (e) => {
-  //   e.preventDefault();
-  //   const displayName = e.target.name.value;
-  //   const photoURL = e.target.photoURL.value;
-  //   const email = e.target.email.value;
-  //   const password = e.target.password.value;
-  //   console.log(displayName, photoURL, email, password);
-  //   // const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-  //   // // if (!pattern.test(password)) {
-  //   // //   // toast.error(
-  //   // //   //   "Password must include at least 1 uppercase letter, at least 1 lowercase letter and minimum 6 characters"
-  //   // //   // );
-  //   // //   return;
-  //   // // }
-  // };
+  const { userSignInWithGoogle, userRegister, updatedProfile } =
+    useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const displayName = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const photoURL = e.target.photoURL.value;
+    console.log(displayName, email, password, photoURL);
+    const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!pattern.test(password)) {
+      toast.error(
+        "Password must include at least 1 uppercase letter, at least 1 lowercase letter and minimum 6 characters"
+      );
+      return;
+    }
+
+    // User register with email and password
+    userRegister(email, password)
+      .then((result) => {
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
+        updatedProfile(displayName, photoURL)
+          .then((result) => {
+            console.log(result.user);
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+        setTimeout(() => {
+          window.location.reload();
+        }, 5000);
+        toast.success("Register Successful");
+        console.log(result.user);
+      })
+      .catch((error) => {
+        toast.success("This email is already used");
+        console.log(error.message);
+      });
+  };
+
+  // User sign in with email and password
+
   // Google Popup signin
   const handleGoogle = () => {
     userSignInWithGoogle()
       .then((result) => {
         console.log(result.user);
+        toast("Google Login Succsessfull");
       })
       .catch((error) => {
         console.log(error.message);
+        toast("Something is wrong");
       });
   };
 
@@ -43,7 +75,7 @@ const Register = () => {
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
-              <form>
+              <form onSubmit={handleRegister}>
                 <fieldset className="fieldset">
                   {/* Email input field */}
                   <label className="label">Name</label>
@@ -54,6 +86,7 @@ const Register = () => {
                     placeholder="Name"
                     required
                   />
+                  {/* Email input field */}
                   <label className="label">Email</label>
                   <input
                     type="email"
@@ -62,14 +95,7 @@ const Register = () => {
                     placeholder="Email"
                     required
                   />
-                  <label className="label">PhotoURL</label>
-                  <input
-                    type="text"
-                    name="photoURL"
-                    className="input"
-                    placeholder="PhotoURL"
-                    required
-                  />
+
                   {/* Password input field */}
                   <label className="label">Password</label>
                   <div className="relative">
@@ -78,6 +104,15 @@ const Register = () => {
                       name="password"
                       className="input"
                       placeholder="Password"
+                      required
+                    />
+                    {/* Photo URL field */}
+                    <label className="label">PhotoURL</label>
+                    <input
+                      type="text"
+                      name="photoURL"
+                      className="input"
+                      placeholder="PhotoURL"
                       required
                     />
                     <div className="absolute left-55 top-3 text-xl"></div>

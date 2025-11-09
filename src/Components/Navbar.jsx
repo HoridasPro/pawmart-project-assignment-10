@@ -104,9 +104,9 @@ const Navbar = () => {
           <Link
             onClick={handleSignOut}
             to="/"
-            className="btn bg-gradient-to-br from-blue-900 via-blue-500 to-blue-500"
+            className="btn bg-gradient-to-br from-blue-900 via-blue-500 to-blue-500 ml-3"
           >
-            SignOut
+            Logout
           </Link>
         ) : (
           <Link to="/register" className="btn">
