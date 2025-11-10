@@ -9,6 +9,7 @@ import AddListing from "../Pages/AddListing";
 import MyListings from "../Pages/MyListings";
 import PrivateRoute from "../Private/PrivateRoute";
 import MyOrders from "../Pages/MyOrders";
+import CategoryFilteredProducts from "../Pages/CategoryFilteredProducts";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
             <MyOrders />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/category-filtered-product/:categoryName",
+        element: <CategoryFilteredProducts />,
       },
     ],
   },

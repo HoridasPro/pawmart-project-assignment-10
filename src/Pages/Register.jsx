@@ -49,10 +49,7 @@ const Register = () => {
         console.log(error.message);
       });
   };
-
-  // User sign in with email and password
-
-  // Google Popup signin
+  // Google Popup signIn
   const handleGoogle = () => {
     userSignInWithGoogle()
       .then((result) => {
