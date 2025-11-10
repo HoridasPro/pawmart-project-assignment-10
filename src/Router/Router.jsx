@@ -10,6 +10,7 @@ import MyListings from "../Pages/MyListings";
 import PrivateRoute from "../Private/PrivateRoute";
 import MyOrders from "../Pages/MyOrders";
 import CategoryFilteredProducts from "../Pages/CategoryFilteredProducts";
+import ProductDetails from "../Components/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,12 @@ const router = createBrowserRouter([
       {
         path: "/category-filtered-product/:categoryName",
         element: <CategoryFilteredProducts />,
+      },
+      {
+        path: "/productDetails/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/products/${params.id}`),
+        element: <ProductDetails />,
       },
     ],
   },
