@@ -11,6 +11,8 @@ import PrivateRoute from "../Private/PrivateRoute";
 import MyOrders from "../Pages/MyOrders";
 import CategoryFilteredProducts from "../Pages/CategoryFilteredProducts";
 import ProductDetails from "../Components/ProductDetails";
+import OrderListing from "../Components/OrderListing";
+// import OrderListing from "../Components/OrderListing";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +72,12 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:3000/products/${params.id}`),
         element: <ProductDetails />,
+      },
+      {
+        path: "/orderListing/:orderListing",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/orders/${params.orderListing}`),
+        element: <OrderListing />,
       },
     ],
   },

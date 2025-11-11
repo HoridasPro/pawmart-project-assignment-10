@@ -1,10 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default;
+  themes: dark --default;
 }
 @plugin "daisyui/theme" {
   name: "business";
-  default: true;
+
   --color-primary: blue;
   --color-secondary: teal;
 }

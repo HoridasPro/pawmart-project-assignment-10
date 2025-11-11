@@ -12,7 +12,7 @@ const ProductsCategories = () => {
           <div
             key={item}
             onClick={() => navigate(`/category-filtered-product/${item}`)}
-            className="cursor-pointer text-center p-5 shadow-sm transition-all duration-300 rounded-2xl border-2 border-gray-400"
+            className="cursor-pointer text-center p-5 shadow-sm  rounded-2xl border-2 border-gray-400 bg-amber-100 text-black hover:hover:scale-110 transition-all duration-300"
           >
             <h2 className="font-bold text-lg ">{item}</h2>
           </div>

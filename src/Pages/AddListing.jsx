@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import AuthContext from "../AuthContext/AuthContex";
+import { toast } from "react-toastify";
 
 const AddListing = () => {
-  const {user}=useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const handleAddListing = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -11,7 +12,7 @@ const AddListing = () => {
     const price = form.price.value;
     const location = form.location.value;
     const description = form.description.value;
-    const image = form.photoURL.value;
+    const photo = form.photoURL.value;
     const date = form.date.value;
     const email = form.email.value;
     const newProduct = {
@@ -20,12 +21,12 @@ const AddListing = () => {
       price: price,
       location: location,
       description: description,
-      image: image,
+      image: photo,
       date: date,
       email: email,
     };
 
-    fetch("http://localhost:3000/products", {
+    fetch("http://localhost:3000/addListing", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -35,6 +36,8 @@ const AddListing = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("after posting the data", data);
+        toast.success("Add data successfull");
+        e.target.reset();
       });
   };
   return (
@@ -55,6 +58,7 @@ const AddListing = () => {
                       name="name"
                       className="input"
                       placeholder="name"
+                      required
                     />
                   </div>
 
@@ -81,6 +85,7 @@ const AddListing = () => {
                       name="price"
                       className="input"
                       placeholder="0 if pet is selected"
+                      required
                     />
                   </div>
 
@@ -91,6 +96,7 @@ const AddListing = () => {
                       name="location"
                       className="input"
                       placeholder="location"
+                      required
                     />
                   </div>
                 </div>
@@ -103,6 +109,7 @@ const AddListing = () => {
                       name="description"
                       className="input"
                       placeholder="description"
+                      required
                     />
                   </div>
 
@@ -113,6 +120,7 @@ const AddListing = () => {
                       name="photoURL"
                       className="input"
                       placeholder="photoURL"
+                      required
                     />
                   </div>
                 </div>
@@ -125,18 +133,20 @@ const AddListing = () => {
                       name="date"
                       className="input"
                       placeholder="date"
+                      required
                     />
                   </div>
 
                   <div>
                     <label className="label">Email</label>
                     <input
-                    defaultValue={user?.email}
                       type="email"
                       name="email"
                       className="input"
                       placeholder="email"
+                      defaultValue={user?.email}
                       readOnly
+                      required
                     />
                   </div>
                 </div>
