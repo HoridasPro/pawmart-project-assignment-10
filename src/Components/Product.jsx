@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router";
 
 const Product = ({ product }) => {
-  console.log(product);
   const { _id, product_name,price, location,image,category } = product;
 
   return (
