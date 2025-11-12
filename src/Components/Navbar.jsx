@@ -7,21 +7,36 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `hidden md:block ${isActive ? "text-red-400" : ""}`
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/petsAndSupplies">Pets & Supplies</NavLink>
+        <NavLink to="/petsAndSupplies"  className={({ isActive }) =>
+            `hidden md:block ${isActive ? "text-red-400" : ""}`
+          }>Pets & Supplies</NavLink>
       </li>
       {user && (
         <>
           <li>
-            <NavLink to="/addListing">Add Listing</NavLink>
+            <NavLink to="/addListing"  className={({ isActive }) =>
+            `hidden md:block ${isActive ? "text-red-400" : ""}`
+          }>Add Listing</NavLink>
           </li>
           <li>
-            <NavLink to="/myListings">My Listings</NavLink>
+            <NavLink to="/myListings"  className={({ isActive }) =>
+            `hidden md:block ${isActive ? "text-red-400" : ""}`
+          }>My Listings</NavLink>
           </li>
           <li>
-            <NavLink to="/myOrders">My Orders</NavLink>
+            <NavLink to="/myOrders"  className={({ isActive }) =>
+            `hidden md:block ${isActive ? "text-red-400" : ""}`
+          }>My Orders</NavLink>
           </li>
         </>
       )}
