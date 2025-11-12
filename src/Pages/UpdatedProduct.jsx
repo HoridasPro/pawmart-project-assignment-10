@@ -1,8 +1,15 @@
 import React, { useContext } from "react";
 import AuthContext from "../AuthContext/AuthContex";
 import { toast } from "react-toastify";
+import { useLoaderData } from "react-router";
+// import Loading from "../Components/Loading";
 
-const AddListing = () => {
+const UpdatedProduct = () => {
+  const updateProduct = useLoaderData();
+  console.log(updateProduct);
+
+  // const { _id:updatedId} = updateProduct;
+
   const { user } = useContext(AuthContext);
   const handleAddListing = (e) => {
     e.preventDefault();
@@ -15,29 +22,29 @@ const AddListing = () => {
     const photo = form.photoURL.value;
     const date = form.date.value;
     const email = form.email.value;
-    const newProduct = {
-      product_name: name,
+    const newUpdatedProduct = {
+      productName: name,
       category: category,
       price: price,
       location: location,
       description: description,
-      image: photo,
+      photo: photo,
       date: date,
       email: email,
     };
 
-    fetch("http://localhost:3000/addListing", {
-      method: "POST",
+    fetch(`http://localhost:3000/addListing/${updateProduct?._id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newProduct),
+      body: JSON.stringify(newUpdatedProduct),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log("after posting the data", data);
         toast.success("Add data successfull");
-        e.target.reset();
+        // e.target.reset();
       });
   };
   return (
@@ -58,7 +65,7 @@ const AddListing = () => {
                       name="name"
                       className="input"
                       placeholder="name"
-                      // defaultValue={}
+                      defaultValue={updateProduct?.productName}
                       required
                     />
                   </div>
@@ -86,6 +93,7 @@ const AddListing = () => {
                       name="price"
                       className="input"
                       placeholder="0 if pet is selected"
+                      defaultValue={updateProduct?.price}
                       required
                     />
                   </div>
@@ -97,6 +105,7 @@ const AddListing = () => {
                       name="location"
                       className="input"
                       placeholder="location"
+                      defaultValue={updateProduct?.location}
                       required
                     />
                   </div>
@@ -110,6 +119,7 @@ const AddListing = () => {
                       name="description"
                       className="input"
                       placeholder="description"
+                      defaultValue={updateProduct?.description}
                       required
                     />
                   </div>
@@ -121,6 +131,7 @@ const AddListing = () => {
                       name="photoURL"
                       className="input"
                       placeholder="photoURL"
+                      defaultValue={updateProduct?.photo}
                       required
                     />
                   </div>
@@ -134,6 +145,7 @@ const AddListing = () => {
                       name="date"
                       className="input"
                       placeholder="date"
+                      defaultValue={updateProduct?.date}
                       required
                     />
                   </div>
@@ -162,4 +174,4 @@ const AddListing = () => {
   );
 };
 
-export default AddListing;
+export default UpdatedProduct;

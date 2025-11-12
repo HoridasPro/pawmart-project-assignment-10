@@ -1,10 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import AuthContext from "../AuthContext/AuthContex";
 import Swal from "sweetalert2";
+import UpdatedProduct from "./UpdatedProduct";
+// import OrderListing from "../Components/OrderListing";
 
 const MyListings = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
+  const handleModalRef = useRef(null);
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:3000/myListings?email=${user?.email}`)
@@ -50,6 +53,12 @@ const MyListings = () => {
       }
     });
   };
+  const handleUpdatedProduct = () => {
+    handleModalRef.current.showModal();
+  };
+
+ 
+
   return (
     <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-800">
       <table className="table">
@@ -59,6 +68,7 @@ const MyListings = () => {
             <th>Products Images</th>
             <th>Products Name</th>
             <th>Email</th>
+            <th>Category</th>
             <th>price</th>
             <th>Date</th>
             <th>Location</th>
@@ -89,6 +99,10 @@ const MyListings = () => {
                 <br />
               </td>
               <td>
+                {product?.category}
+                <br />
+              </td>
+              <td>
                 {product?.price}
                 <br />
               </td>
@@ -103,12 +117,40 @@ const MyListings = () => {
                 >
                   Delete
                 </button>
-                <button className="btn ml-3">Update</button>
+                <button
+                  onClick={() => handleUpdatedProduct(product?._id)}
+                  className="btn ml-3"
+                >
+                  Update
+                </button>
               </th>
             </tr>
           ))}
         </tbody>
       </table>
+      <dialog
+        ref={handleModalRef}
+        className="modal modal-bottom sm:modal-middle"
+      >
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Hello!</h3>
+          <p className="py-4">
+            Press ESC key or click the button below to close
+          </p>
+
+          <div className="card bg-base-100 shrink-0 shadow-2xl">
+            <div className="card-body">
+              <UpdatedProduct handleModalRef={handleModalRef}></UpdatedProduct>
+            </div>
+          </div>
+
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };
