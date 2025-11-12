@@ -2,7 +2,7 @@ import React from "react";
 import ProductsCategories from "../Components/ProductsCategories";
 import LatestProducts from "../Components/LatestProducts";
 import HeroSection from "../Components/HeroSection";
-import BannerSection from "../Components/BannerSection";
+import BannerSlider from "../Components/BannerSlider";
 
 const latestProductsPromise = fetch(
   "http://localhost:3000/latest-products"
@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <HeroSection></HeroSection>
-      <BannerSection></BannerSection>
+      <BannerSlider></BannerSlider>
       <ProductsCategories></ProductsCategories>
       <LatestProducts
         latestProductsPromise={latestProductsPromise}

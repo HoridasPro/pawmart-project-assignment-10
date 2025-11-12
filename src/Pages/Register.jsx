@@ -70,12 +70,12 @@ const Register = () => {
           <div className="text-center lg:text-left">
             <h1 className="text-4xl font-bold">Register</h1>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <div className="card-body">
+          <div className="card bg-base-100 max-w-sm shrink-0 shadow-2xl">
+            <div className="card-body bg-black w-full rounded-2xl">
               <form onSubmit={handleRegister}>
                 <fieldset className="fieldset">
                   {/* Email input field */}
-                  <label className="label">Name</label>
+                  <label className="label mt-3">Name</label>
                   <input
                     type="text"
                     name="name"
@@ -84,7 +84,7 @@ const Register = () => {
                     required
                   />
                   {/* Email input field */}
-                  <label className="label">Email</label>
+                  <label className="label mt-3">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -94,7 +94,7 @@ const Register = () => {
                   />
 
                   {/* Password input field */}
-                  <label className="label">Password</label>
+                  <label className="label mt-3">Password</label>
                   <div className="relative">
                     <input
                       type="password"
@@ -104,7 +104,7 @@ const Register = () => {
                       required
                     />
                     {/* Photo URL field */}
-                    <label className="label">PhotoURL</label>
+                    <label className="label mt-3">PhotoURL</label>
                     <input
                       type="text"
                       name="photoURL"
@@ -114,7 +114,7 @@ const Register = () => {
                     />
                     <div className="absolute left-55 top-3 text-xl"></div>
                   </div>
-                  <button className="btn btn-neutral mt-4">Register</button>
+                  <button className="btn mt-4">Register</button>
                 </fieldset>
               </form>
 

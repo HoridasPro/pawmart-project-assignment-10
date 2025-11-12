@@ -5,6 +5,7 @@
 @plugin "daisyui/theme" {
   name: "business";
 
-  --color-primary: blue;
+  --color-primary: :black;
   --color-secondary: teal;
 }
+ 

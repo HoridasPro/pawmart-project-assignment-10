@@ -5,11 +5,11 @@ const LatestProduct = ({ latestProduct }) => {
   const { _id, product_name, category, price, location, image } = latestProduct;
 
   return (
-    <div className="card bg-base-100 w-96 shadow-sm border-2 border-gray-300 bg-white">
+    <div className="card bg-base-100 w-96 shadow-sm  hover:scale-105  transition-all duration-300 bg-white">
       <figure>
         <img src={image} alt="Shoes" />
       </figure>
-      <div className="card-body text-black max-">
+      <div className="card-body text-black">
         <h2 className="card-title">{product_name}</h2>
         <div className="flex justify-end">
           <p>
@@ -27,7 +27,7 @@ const LatestProduct = ({ latestProduct }) => {
         <div className="card-actions">
           <Link
             to={`/productDetails/${_id}`}
-            className="btn btn-primary w-full rounded-sm"
+            className="btn primary w-full rounded-sm"
           >
             See Details
           </Link>

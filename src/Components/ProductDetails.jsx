@@ -6,59 +6,43 @@ const ProductDetails = () => {
   const orderModalRef = useRef(null);
   const product = useLoaderData();
 
-  const {
-    image,
-    product_name,
-    price,
-    location,
-    // date,
-    email,
-    description,
-    category,
-  } = product;
+  const { image, product_name, price, location, email, description, category } =
+    product;
 
   const handleProductOrderModal = () => {
     orderModalRef.current.showModal();
   };
 
   return (
-    <div className="  bg-base-100 shadow-2xl mb-10 w-11/12 mx-auto mt-10 flex gap-5 flex-col md:flex-row lg:flex-row">
-      <figure className=" bg-[#1a191d] flex justify-center items-center w-fit">
+    <div className=" bg-white shadow-2xl mb-15 w-11/12 mx-auto mt-10 flex gap-5 flex-col md:flex-row lg:flex-row">
+      <figure className="  flex justify-center items-center w-fit">
         <img
-          className="hover:scale-110 transform transition duration-300"
+          className="hover:scale-105 transform transition duration-300"
           src={image}
           alt="Toy"
         />
       </figure>
-      <div className="card-body  ]">
+      <div className="card-body text-black">
         <h2 className="card-title text-2xl">{product_name}</h2>
+
+        <span className="text-lg font-semibold">Owner's Email : {email}</span>
+
         <p>
           <span className="text-lg font-semibold">Category : </span>
           {category}
         </p>
-        <p>
-          <span className="text-lg font-semibold">Owner's Email : </span>
-          {email}
-        </p>
-        <p className="mb-25">
-          <span className="text-lg font-semibold">Description : </span>
-          {description}
-        </p>
+
         <div className="flex gap-5 -mt-20 flex-col md:flex-row lg:flex-row">
-          <h2 className=" bg-[#1a191d] shadow-xl p-5 px-20 font-bold text-xl hover:scale-110 transform transition duration-300">
+          <h2 className="  bg-white text-black shadow-xl p-5 px-20 font-bold text-xl hover:scale-110 transform transition duration-300 rounded-xl">
             Price:{price}
           </h2>
 
-          <h2 className=" bg-[#1a191d] shadow-xl p-5 px-20 font-bold text-xl hover:scale-110 transform transition duration-300">
+          <h2 className="bg-white text-black shadow-xl p-5 px-20 font-bold text-xl hover:scale-110 transform transition duration-300 rounded-xl">
             Location:{location}
           </h2>
-
-          {/* <h2 className=" bg-[#1a191d] shadow-xl p-5 px-20 font-bold text-xl hover:scale-110 transform transition duration-300">
-            Quantity:{category}
-          </h2> */}
         </div>
-        <p className="mt-5">
-          <span className="text-xl font-semibold">Description :</span>
+        <p className="mt-10">
+          <span className="text-lg font-semibold">Description : </span>
           {description}
         </p>
 
@@ -66,7 +50,7 @@ const ProductDetails = () => {
           <button
             onClick={handleProductOrderModal}
             type="button"
-            className="bg-gradient-to-br from-rose-400 via-fuchsia-500 to-indigo-500 text-black py-1 px-7 font-semibold font-semibold rounded-sm mt-3 w-full"
+            className="btn text-white hover:bg-black py-1 px-7 font-semibold font-semibold rounded-sm mt-3 w-full"
           >
             Order Now
           </button>
@@ -74,16 +58,12 @@ const ProductDetails = () => {
             ref={orderModalRef}
             className="modal modal-bottom sm:modal-middle"
           >
-            <div className="modal-box">
-              <h3 className="font-bold text-lg">Hello!</h3>
-              <p className="py-4">
-                Press ESC key or click the button below to close
-              </p>
+            <div className="modal-box bg-black text-white">
+              {/* <h3 className="font-bold text-lg">Hello!</h3> */}
+              <p className="py-4 font-bold text-2xl">Add New Listing</p>
 
-              <div className="card bg-base-100 shrink-0 shadow-2xl">
-                <div className="card-body">
-                  <OrderListing orderModalRef={orderModalRef}></OrderListing>
-                </div>
+              <div className="card-body bg-base-100 shrink-0 bg-black">
+                <OrderListing orderModalRef={orderModalRef}></OrderListing>
               </div>
 
               <div className="modal-action">

@@ -51,14 +51,14 @@ const UpdatedProduct = () => {
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Add Listing</h1>
+          <h1 className="text-3xl font-bold">Updata Add Listing</h1>
         </div>
         <div className="card bg-base-100 shrink-0 shadow-2xl">
           <div className="card-body">
             <form onSubmit={handleAddListing}>
               <fieldset className="fieldset grid gap-10 ">
                 <div className="flex gap-5 items-center">
-                  <div className="">
+                  <div>
                     <label className="label">Product Name</label>
                     <input
                       type="text"
@@ -99,11 +99,11 @@ const UpdatedProduct = () => {
                   </div>
 
                   <div>
-                    <label className="label">Location</label>
+                    <label className="label ml-3">Location</label>
                     <input
                       type="text"
                       name="location"
-                      className="input"
+                      className="input ml-3"
                       placeholder="location"
                       defaultValue={updateProduct?.location}
                       required
@@ -151,11 +151,11 @@ const UpdatedProduct = () => {
                   </div>
 
                   <div>
-                    <label className="label">Email</label>
+                    <label className="label ml-3">Email</label>
                     <input
                       type="email"
                       name="email"
-                      className="input"
+                      className="input ml-3"
                       placeholder="email"
                       defaultValue={user?.email}
                       readOnly

@@ -152,7 +152,7 @@ const AddListing = () => {
                   </div>
                 </div>
 
-                <button className="btn btn-neutral mt-4">Add Listing</button>
+                <button className="btn btn-neutral hover:bg-black mt-4">Add Listing</button>
               </fieldset>
             </form>
           </div>

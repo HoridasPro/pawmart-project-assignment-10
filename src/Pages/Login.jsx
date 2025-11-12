@@ -16,11 +16,11 @@ const Login = () => {
     console.log(email, password);
     userLogin(email, password)
       .then((result) => {
-        toast("Login successfull")
+        toast("Login successfull");
         console.log(result.user);
       })
       .catch((error) => {
-        toast("Invalid email or password")
+        toast("Invalid email or password");
         console.log(error.message);
       });
   };
@@ -29,11 +29,11 @@ const Login = () => {
     userSignInWithGoogle()
       .then((result) => {
         console.log(result.user);
-        toast("Google Login Succsessfull")
+        toast("Google Login Succsessfull");
       })
       .catch((error) => {
         console.log(error.message);
-        toast("Something is wrong")
+        toast("Something is wrong");
       });
   };
 
@@ -45,8 +45,8 @@ const Login = () => {
           <div className="text-center lg:text-left">
             <h1 className="text-4xl font-bold">Login</h1>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <div className="card-body">
+          <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+            <div className="card-body p-10">
               <form onSubmit={handleLogin}>
                 <fieldset className="fieldset">
                   {/* Email input field */}
@@ -54,7 +54,7 @@ const Login = () => {
                   <input
                     type="email"
                     name="email"
-                    className="input"
+                    className="input w-full"
                     placeholder="Email"
                     required
                   />
