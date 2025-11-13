@@ -14,7 +14,7 @@ import ProductDetails from "../Components/ProductDetails";
 import OrderListing from "../Components/OrderListing";
 // import UpdatedProduct from "../Pages/UpdatedProduct";
 import DownloadOrders from "../Components/DownloadOrdersPDF";
-import UpdatedProduct from "../Pages/UpdatedProduct";
+// import UpdatedProduct from "../Pages/UpdatedProduct";
 import ErrorPage from "../Pages/ErrorPage";
 // import OrderListing from "../Components/OrderListing";
 
@@ -88,12 +88,12 @@ const router = createBrowserRouter([
           fetch(`http://localhost:3000/orders/${params.orderListing}`),
         element: <OrderListing />,
       },
-      {
-        path: "/updatedProduct/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/addListing/${params.id}`),
-        element: <UpdatedProduct />,
-      },
+      // {
+      //   path: "/updatedProduct/:id",
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:3000/addListing/${params.id}`),
+      //   element: <UpdatedProduct />,
+      // },
       {
         path: "/downloadOrders",
         element: <DownloadOrders />,

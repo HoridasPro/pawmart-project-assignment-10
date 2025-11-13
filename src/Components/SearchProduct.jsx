@@ -1,27 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SearchProduct = () => {
+  const [profile,setProfile]=useState()
+   // Search function
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchItem = e.target.searchitem.value;
+    fetch(`http://localhost:3000/search?search=${searchItem}`)
+      .then(res => setProfile(res.data))
+      .catch(err => console.log(err));
+  };
   return (
     <div>
-      <label className="input flex mx-auto max-w-[1380px]">
-        <svg
-          className="h-[1em] opacity-50"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-        >
-          <g
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            strokeWidth="2.5"
-            fill="none"
-            stroke="currentColor"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.3-4.3"></path>
-          </g>
-        </svg>
-        <input type="search" required placeholder="Search" />
-      </label>
+       <form onSubmit={handleSearch} className='mt-4 md:mt-0'>
+          <div className="relative flex items-center">
+            <input
+              type="search"
+              name="searchitem"
+              placeholder="Search"
+              className="input w-[250px] md:w-[300px] rounded-l-full border border-gray-300 outline-none px-4 py-2"
+            />
+            <button
+              type="submit"
+              className="btn rounded-r-full px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white"
+            >
+              <FaSearch />
+            </button>
+          </div>
+        </form>
+         
     </div>
   );
 };

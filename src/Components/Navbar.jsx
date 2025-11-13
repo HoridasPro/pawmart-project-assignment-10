@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import logoImg from "../assets/PawMart.png";
 import AuthContext from "../AuthContext/AuthContex";
+import { BiMoon, BiSun } from "react-icons/bi";
 const Navbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState();
   const links = (
     <>
       <li>
@@ -63,6 +65,18 @@ const Navbar = () => {
         console.log(error.message);
       });
   };
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    if (theme === "dark") {
+      html.classList.add("dark");
+      html.setAttribute("data-theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      html.setAttribute("data-theme", "light");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <div className="navbar bg-base-100 shadow-sm py-3 px-5">
@@ -134,6 +148,17 @@ const Navbar = () => {
             Register
           </Link>
         )}
+
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="btn btn-ghost btn-circle"
+        >
+          {theme === "dark" ? (
+            <BiMoon className="text-indigo-600" size={22} />
+          ) : (
+            <BiSun className="text-yellow-400" size={22} />
+          )}
+        </button>
       </div>
     </div>
   );

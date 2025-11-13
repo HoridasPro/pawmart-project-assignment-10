@@ -1,16 +1,16 @@
-# React + Vite
+1. My Project PawMart : PaqMart is an online platform that connects local pet owners and buyers in one place.  
+   Here, users can adopt pets, list their own pets for adoption, and buy or sell pet care products easily.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+2. Life Link :
 
-Currently, two official plugins are available:
+3. Features:
+   (i)The goal of PawMart is to build a loving and safe community for all pet lovers.
+   Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+(ii)Pet Adoption System Users can browse available pets and adopt them with one click.
 
-## React Compiler
+(iii)Pet Product Marketplace Allows users to post and find pet accessories, food, and care items.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+(iv)User Authentication Secure login and registration using Firebase Authentication.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+(v)Filter & Search Functionality Quickly find pets or products by category and location.

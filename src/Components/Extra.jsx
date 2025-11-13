@@ -9,7 +9,6 @@ const MyListings = () => {
   const [loading, setLoading] = useState(true);
   const [updateProduct, setUpdateProduct] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
-  // const [refresh, setRefresh] = useState(false);
 
   // Fetch Products
   const fetchProducts = async () => {
@@ -26,8 +25,6 @@ const MyListings = () => {
       );
       if (!res.ok) throw new Error("Failed to fetch products");
       const data = await res.json();
-
-      // date অনুযায়ী sort
       const sortedData = data.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
@@ -47,31 +44,37 @@ const MyListings = () => {
   if (loading) return <Loading />;
 
   // Delete Product
-  const handleDeleteOrderProduct = (_id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:3000/addListing/${_id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount) {
-              Swal.fire("Deleted!", "Your product has been deleted", "success");
-              setProducts(products.filter((p) => p._id !== _id));
-            } else {
-              Swal.fire("Error!", "Failed to delete the product", "error");
-            }
-          });
+  const handleDeleteOrderProduct = async (_id) => {
+    try {
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
+
+      if (!result.isConfirmed) return;
+
+      const res = await fetch(`http://localhost:3000/addListing/${_id}`, {
+        method: "DELETE",
+      });
+      if (!res.ok) throw new Error("Failed to delete product");
+      const data = await res.json();
+
+      if (data.deletedCount && data.deletedCount > 0) {
+        // Remove deleted product from state
+        setProducts(products.filter((product) => product._id !== _id));
+        Swal.fire("Deleted!", "Your product has been deleted", "success");
+      } else {
+        Swal.fire("Error!", "Failed to delete the product", "error");
       }
-    });
+    } catch (error) {
+      console.error("Delete failed:", error);
+      Swal.fire("Error!", "Something went wrong while deleting.", "error");
+    }
   };
 
   // Open Update Modal
@@ -84,7 +87,6 @@ const MyListings = () => {
   const handleAddListing = async (e) => {
     e.preventDefault();
     const form = e.target;
-
     const updatedProductData = {
       product_name: form.name.value,
       category: form.category.value,
@@ -105,9 +107,11 @@ const MyListings = () => {
           body: JSON.stringify(updatedProductData),
         }
       );
-
+      if (!res.ok) throw new Error("Failed to update product");
       const data = await res.json();
-      if (data.modifiedCount > 0) {
+
+      if (data.modifiedCount && data.modifiedCount > 0) {
+        // Update product in state
         setProducts(
           products.map((p) =>
             p._id === updateProduct._id ? { ...p, ...updatedProductData } : p
@@ -133,12 +137,12 @@ const MyListings = () => {
         </p>
       ) : (
         <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-800">
-          <table className="table text-white">
+          <table className="table">
             <thead>
               <tr>
                 <th>SI</th>
-                <th>Image</th>
-                <th>Name</th>
+                <th>Products Images</th>
+                <th>Products Name</th>
                 <th>Email</th>
                 <th>Category</th>
                 <th>Price</th>
@@ -153,16 +157,12 @@ const MyListings = () => {
                   <td>{index + 1}</td>
                   <td>
                     <img
-                      src={
-                        product.photo ||
-                        product.image ||
-                        "https://via.placeholder.com/60"
-                      }
-                      alt={product.product_name || product.productName || "Pet"}
+                      src={product.photo}
+                      alt={product.product_name}
                       className="w-12 h-12 object-cover rounded"
                     />
                   </td>
-                  <td>{product.product_name || product.productName}</td>
+                  <td>{product.product_name}</td>
                   <td>{product.email}</td>
                   <td>{product.category}</td>
                   <td>{product.price}</td>
@@ -171,13 +171,13 @@ const MyListings = () => {
                   <td>
                     <button
                       onClick={() => handleDeleteOrderProduct(product._id)}
-                      className="btn btn-sm btn-error"
+                      className="btn btn-sm"
                     >
                       Delete
                     </button>
                     <button
                       onClick={() => handleUpdatedProduct(product)}
-                      className="btn btn-sm btn-info ml-2"
+                      className="btn btn-sm ml-2"
                     >
                       Update
                     </button>
@@ -187,20 +187,18 @@ const MyListings = () => {
             </tbody>
           </table>
 
-          {/* Update Modal */}
+          {/* Modal */}
           {modalVisible && updateProduct && (
             <dialog open className="modal modal-bottom sm:modal-middle">
               <div className="modal-box">
-                <h1 className="text-3xl font-bold mb-5">Update Listing</h1>
+                <h1 className="text-3xl font-bold mb-5">Update Add Listing</h1>
                 <form onSubmit={handleAddListing}>
-                  <fieldset className="grid gap-4">
+                  <fieldset className="grid gap-5">
                     <input
                       type="text"
                       name="name"
                       placeholder="Product Name"
-                      defaultValue={
-                        updateProduct.product_name || updateProduct.productName
-                      }
+                      defaultValue={updateProduct.product_name}
                       className="input input-bordered"
                       required
                     />
@@ -242,7 +240,7 @@ const MyListings = () => {
                       type="text"
                       name="photoURL"
                       placeholder="Image URL"
-                      defaultValue={updateProduct.photo || updateProduct.image}
+                      defaultValue={updateProduct.photo}
                       className="input input-bordered"
                       required
                     />

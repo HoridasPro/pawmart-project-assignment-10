@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Components/Product";
 import Loading from "../Components/Loading";
-import SearchProduct from "../Components/SearchProduct";
+import { FaSearch } from "react-icons/fa";
 
 const PetsAndSupplies = () => {
   const categories = ["All", "Pets", "Food", "Accessories", "Care Products"];
@@ -9,7 +9,9 @@ const PetsAndSupplies = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // 🔹 Fetch Products by Category
   useEffect(() => {
+    setLoading(true);
     const url =
       selectedCategory === "All"
         ? "http://localhost:3000/products"
@@ -17,44 +19,84 @@ const PetsAndSupplies = () => {
 
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data))
+      .catch((err) => console.error("Fetch error:", err))
+      .finally(() => setLoading(false));
   }, [selectedCategory]);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
+
+  // 🔹 Search Product Function
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchItem = e.target.searchitem.value.trim();
+    if (!searchItem) return;
+
+    setLoading(true);
+    fetch(`http://localhost:3000/search?search=${searchItem}`)
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.log("Search error:", err))
+      .finally(() => setLoading(false));
+  };
+
   if (loading) {
     return <Loading />;
   }
 
   return (
     <>
-      <SearchProduct></SearchProduct>
       <title>Pets & Supplies</title>
-      <div className="max-w-7xl mx-auto mb-15 md:px-0 px-3">
-        {/* Category Buttons */}
-        <h1 className="text-2xl font-bold mb-5">Filter by Category</h1>
-        <div className="flex gap-3 mb-5 justify-between flex-col md:flex-row">
+
+      {/* 🔍 Search Bar */}
+      <div className="flex justify-center mt-6 mb-4">
+        <form onSubmit={handleSearch}>
+          <div className="relative flex items-center">
+            <input
+              type="search"
+              name="searchitem"
+              placeholder="Search"
+              className="input w-[250px] md:w-[350px] rounded-l-full border border-gray-300 outline-none px-4 py-2"
+            />
+            <button
+              type="submit"
+              className="btn rounded-r-full px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white"
+            >
+              <FaSearch />
+            </button>
+          </div>
+        </form>
+      </div>
+
+      {/* 🔹 Filter Buttons */}
+      <div className="max-w-7xl mx-auto mb-10 md:px-0 px-3">
+        <h1 className="text-2xl font-bold mb-5 text-center">
+          Filter by Category
+        </h1>
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           {categories.map((item) => (
             <button
               key={item}
               onClick={() => setSelectedCategory(item)}
-              className="p-20 py-5 rounded-xl flex 
-                border-2 border-gray-400 bg-amber-100 text-black hover:scale-110 hover:bg-blue-500 transition-all duration-300 justify-center"
+              className={`px-6 py-3 rounded-xl border-2 border-gray-400 text-black font-medium transition-all duration-300
+                ${
+                  selectedCategory === item
+                    ? "bg-blue-600 text-white scale-105"
+                    : "bg-amber-100 hover:bg-blue-400 hover:text-white"
+                }`}
             >
               {item}
             </button>
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        {/* 🔹 Product Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.length === 0 ? (
-            <p className="text-[30px] font-bold flex justify-center">
-              No products found
+            <p className="text-[30px] font-bold text-center col-span-3">
+              ❌ No products found
             </p>
           ) : (
             products.map((product) => (
-              <Product key={product._id} product={product}></Product>
+              <Product key={product._id} product={product} />
             ))
           )}
         </div>
