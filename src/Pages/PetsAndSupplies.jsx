@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Components/Product";
 import Loading from "../Components/Loading";
+import SearchProduct from "../Components/SearchProduct";
 
 const PetsAndSupplies = () => {
   const categories = ["All", "Pets", "Food", "Accessories", "Care Products"];
@@ -29,17 +30,18 @@ const PetsAndSupplies = () => {
 
   return (
     <>
-    <title>Pets & Supplies</title>
-      <div className="max-w-7xl mx-auto mt-10 mb-15">
+      <SearchProduct></SearchProduct>
+      <title>Pets & Supplies</title>
+      <div className="max-w-7xl mx-auto mb-15 md:px-0 px-3">
         {/* Category Buttons */}
         <h1 className="text-2xl font-bold mb-5">Filter by Category</h1>
-        <div className="flex gap-3 mb-5 justify-between">
+        <div className="flex gap-3 mb-5 justify-between flex-col md:flex-row">
           {categories.map((item) => (
             <button
               key={item}
               onClick={() => setSelectedCategory(item)}
               className="p-20 py-5 rounded-xl flex 
-                border-2 border-gray-400 bg-amber-100 text-black hover:scale-110 hover:bg-blue-500 transition-all duration-300"
+                border-2 border-gray-400 bg-amber-100 text-black hover:scale-110 hover:bg-blue-500 transition-all duration-300 justify-center"
             >
               {item}
             </button>
@@ -51,7 +53,9 @@ const PetsAndSupplies = () => {
               No products found
             </p>
           ) : (
-            products.map((product) => <Product product={product}></Product>)
+            products.map((product) => (
+              <Product key={product._id} product={product}></Product>
+            ))
           )}
         </div>
       </div>

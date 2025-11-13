@@ -25,7 +25,7 @@ const CategoryFilteredProducts = () => {
 
   return (
     <div className="max-w-7xl mx-auto mt-10">
-      <h2 className="text-3xl font-bold mb-8 text-center text-blue-600">
+      <h2 className="text-[30px] mb-3 font-bold text-gray-400 text-center">
         {categoryName} Products
       </h2>
 
@@ -39,7 +39,9 @@ const CategoryFilteredProducts = () => {
         </div>
       )}
       <Link to="/">
-        <button className="font-bold btn flex mx-auto">Back to home</button>
+        <button className="cursor-pointer font-bold btm bg-black px-8 rounded-sm mb-10 py-3 flex mx-auto mt-10">
+          Back to home
+        </button>
       </Link>
     </div>
   );

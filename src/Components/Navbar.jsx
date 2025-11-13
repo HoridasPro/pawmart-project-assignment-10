@@ -9,9 +9,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={({ isActive }) =>
-            `hidden md:block ${isActive ? "text-red-400" : ""}`
-          }
+          className={({ isActive }) => `${isActive ? "text-red-400" : ""}`}
         >
           Home
         </NavLink>
@@ -19,9 +17,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/petsAndSupplies"
-          className={({ isActive }) =>
-            `hidden md:block ${isActive ? "text-red-400" : ""}`
-          }
+          className={({ isActive }) => `${isActive ? "text-red-400" : ""}`}
         >
           Pets & Supplies
         </NavLink>
@@ -31,9 +27,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/addListing"
-              className={({ isActive }) =>
-                `hidden md:block ${isActive ? "text-red-400" : ""}`
-              }
+              className={({ isActive }) => `${isActive ? "text-red-400" : ""}`}
             >
               Add Listing
             </NavLink>
@@ -41,9 +35,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/myListings"
-              className={({ isActive }) =>
-                `hidden md:block ${isActive ? "text-red-400" : ""}`
-              }
+              className={({ isActive }) => `${isActive ? "text-red-400" : ""}`}
             >
               My Listings
             </NavLink>
@@ -51,9 +43,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/myOrders"
-              className={({ isActive }) =>
-                `hidden md:block ${isActive ? "text-red-400" : ""}`
-              }
+              className={({ isActive }) => `${isActive ? "text-red-400" : ""}`}
             >
               My Orders
             </NavLink>
@@ -136,11 +126,7 @@ const Navbar = () => {
         </div>
 
         {user ? (
-          <Link
-            onClick={handleSignOut}
-            to="/"
-            className="btn ml-5"
-          >
+          <Link onClick={handleSignOut} to="/" className="btn ml-5">
             Logout
           </Link>
         ) : (

@@ -35,6 +35,9 @@ const HeroSection = () => {
       >
         Your one-stop portal for pets and supplies.
       </motion.p>
+
+
+      
     </div>
   );
 };

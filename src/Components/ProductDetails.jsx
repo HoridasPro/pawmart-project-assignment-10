@@ -25,7 +25,7 @@ const ProductDetails = () => {
 
   return (
     <>
-       <title>Product Details</title>
+      <title>Product Details</title>
       <div className=" bg-white shadow-2xl mb-15 w-11/12 mx-auto mt-10 flex gap-5 flex-col md:flex-row lg:flex-row">
         <figure className="  flex justify-center items-center w-fit">
           <img
@@ -44,7 +44,7 @@ const ProductDetails = () => {
             {category}
           </p>
 
-          <div className="flex gap-5 -mt-20 flex-col md:flex-row lg:flex-row">
+          <div className="flex gap-5 md:-mt-20 flex-col md:flex-row lg:flex-row">
             <h2 className="  bg-white text-black shadow-xl p-5 px-20 font-bold text-xl hover:scale-110 transform transition duration-300 rounded-xl">
               Price:{price}
             </h2>

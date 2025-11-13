@@ -18,7 +18,8 @@ const slides = [
     tagline: "Adopt, Don’t Shop — Give a Pet a Home.",
   },
   {
-    image: "https://i.postimg.cc/8zjTbMKd/Chat-GPT-Image-Nov-13-2025-10-20-43-AM.png",
+    image:
+      "https://i.postimg.cc/8zjTbMKd/Chat-GPT-Image-Nov-13-2025-10-20-43-AM.png",
     tagline: "Because Every Pet Deserves Love and Care.",
   },
   {
@@ -29,7 +30,7 @@ const slides = [
 
 const BannerSlider = () => {
   return (
-    <div className="w-full max-w-5xl mx-auto mt-10">
+    <div className="w-full max-w-[1380px] mx-auto mt-10 px-3 md:px-0">
       <Swiper
         modules={[Autoplay]}
         spaceBetween={30}
@@ -39,13 +40,13 @@ const BannerSlider = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-125">
+            <div className="relative w-full md:h-125">
               <img
                 src={slide.image}
                 alt={`Slide ${index + 1}`}
-                className="w-full  object-cover rounded-lg"
+                className="w-full object-cover rounded-lg"
               />
-              <div className="absolute bottom-5 bg-black bg-opacity-50 p-3 rounded-sm text-white text-lg font-bold ml-84">
+              <div className="absolute bottom-5  bg-opacity-50 p-3 rounded-sm text-white text-lg font-bold md:ml-130 ml-5 text-[20px]">
                 {slide.tagline}
               </div>
             </div>

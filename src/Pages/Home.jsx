@@ -4,6 +4,10 @@ import LatestProducts from "../Components/LatestProducts";
 import HeroSection from "../Components/HeroSection";
 import BannerSlider from "../Components/BannerSlider";
 import Loading from "../Components/Loading";
+import FeaturedAdoptions from "../Components/FeaturedAdoptions";
+import PetCareTips from "../Components/PetCareTips";
+// import ToolTips from "../Components/ToolTips";
+// import { Tooltip } from "react-tooltip";
 
 const latestProductsPromise = fetch(
   "http://localhost:3000/latest-products"
@@ -22,12 +26,15 @@ const Home = () => {
   return (
     <div>
       <title>Home</title>
+      {/* <ToolTips></ToolTips> */}
       <HeroSection></HeroSection>
       <BannerSlider></BannerSlider>
       <ProductsCategories></ProductsCategories>
       <LatestProducts
         latestProductsPromise={latestProductsPromise}
       ></LatestProducts>
+      <FeaturedAdoptions></FeaturedAdoptions>
+      <PetCareTips></PetCareTips>
     </div>
   );
 };
