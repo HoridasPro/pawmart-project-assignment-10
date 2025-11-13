@@ -2,16 +2,26 @@ import React, { useEffect, useState } from "react";
 
 import { Link, useParams } from "react-router";
 import Product from "../Components/Product";
+import Loading from "../Components/Loading";
 
 const CategoryFilteredProducts = () => {
   const { categoryName } = useParams();
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`http://localhost:3000/products?category=${categoryName}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [categoryName]);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="max-w-7xl mx-auto mt-10">

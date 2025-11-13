@@ -1,23 +1,27 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import AuthContext from "../AuthContext/AuthContex";
 import { toast } from "react-toastify";
 
-// import { FaEye } from "react-icons/fa";
-// import { IoMdEyeOff } from "react-icons/io";
-
 const Login = () => {
   const { userSignInWithGoogle, userLogin } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     userLogin(email, password)
       .then((result) => {
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
         toast("Login successfull");
         console.log(result.user);
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 5000);
       })
       .catch((error) => {
         toast("Invalid email or password");
@@ -28,6 +32,8 @@ const Login = () => {
   const handleGoogle = () => {
     userSignInWithGoogle()
       .then((result) => {
+         const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
         console.log(result.user);
         toast("Google Login Succsessfull");
       })

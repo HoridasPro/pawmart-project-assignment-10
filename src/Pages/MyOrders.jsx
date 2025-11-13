@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../AuthContext/AuthContex";
-import { Link } from "react-router";
 import DownloadOrders from "../Components/DownloadOrdersPDF";
+import Loading from "../Components/Loading";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:3000/myOrders?email=${user?.email}`)
@@ -18,6 +19,14 @@ const MyOrders = () => {
         });
     }
   }, [user?.email]);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>

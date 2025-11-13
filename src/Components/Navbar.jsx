@@ -17,29 +17,48 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/petsAndSupplies"  className={({ isActive }) =>
+        <NavLink
+          to="/petsAndSupplies"
+          className={({ isActive }) =>
             `hidden md:block ${isActive ? "text-red-400" : ""}`
-          }>Pets & Supplies</NavLink>
+          }
+        >
+          Pets & Supplies
+        </NavLink>
       </li>
-      {user && (
-        <>
-          <li>
-            <NavLink to="/addListing"  className={({ isActive }) =>
-            `hidden md:block ${isActive ? "text-red-400" : ""}`
-          }>Add Listing</NavLink>
-          </li>
-          <li>
-            <NavLink to="/myListings"  className={({ isActive }) =>
-            `hidden md:block ${isActive ? "text-red-400" : ""}`
-          }>My Listings</NavLink>
-          </li>
-          <li>
-            <NavLink to="/myOrders"  className={({ isActive }) =>
-            `hidden md:block ${isActive ? "text-red-400" : ""}`
-          }>My Orders</NavLink>
-          </li>
-        </>
-      )}
+
+      <>
+        <li>
+          <NavLink
+            to="/addListing"
+            className={({ isActive }) =>
+              `hidden md:block ${isActive ? "text-red-400" : ""}`
+            }
+          >
+            Add Listing
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/myListings"
+            className={({ isActive }) =>
+              `hidden md:block ${isActive ? "text-red-400" : ""}`
+            }
+          >
+            My Listings
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/myOrders"
+            className={({ isActive }) =>
+              `hidden md:block ${isActive ? "text-red-400" : ""}`
+            }
+          >
+            My Orders
+          </NavLink>
+        </li>
+      </>
     </>
   );
 

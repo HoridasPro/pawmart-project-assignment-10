@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import AuthContext from "../AuthContext/AuthContex";
 import Swal from "sweetalert2";
 import UpdatedProduct from "./UpdatedProduct";
+import Loading from "../Components/Loading";
 // import OrderListing from "../Components/OrderListing";
 
 const MyListings = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
   const handleModalRef = useRef(null);
+  const [loading,setLoading]=useState(true)
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:3000/myListings?email=${user?.email}`)
@@ -56,9 +58,14 @@ const MyListings = () => {
   const handleUpdatedProduct = () => {
     handleModalRef.current.showModal();
   };
-
- 
-
+useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-800">
       <table className="table">

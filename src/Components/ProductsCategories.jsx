@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import Loading from "./Loading";
 
 const ProductsCategories = () => {
   const categories = ["Pets", "Food", "Accessories", "Care Products"];

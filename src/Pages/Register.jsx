@@ -53,6 +53,8 @@ const Register = () => {
   const handleGoogle = () => {
     userSignInWithGoogle()
       .then((result) => {
+         const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
         console.log(result.user);
         toast("Google Login Succsessfull");
       })

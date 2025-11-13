@@ -1,10 +1,12 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import OrderListing from "./OrderListing";
+import Loading from "./Loading";
 
 const ProductDetails = () => {
   const orderModalRef = useRef(null);
   const product = useLoaderData();
+  const [loading, setLoading] = useState(true);
 
   const { image, product_name, price, location, email, description, category } =
     product;
@@ -12,6 +14,14 @@ const ProductDetails = () => {
   const handleProductOrderModal = () => {
     orderModalRef.current.showModal();
   };
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className=" bg-white shadow-2xl mb-15 w-11/12 mx-auto mt-10 flex gap-5 flex-col md:flex-row lg:flex-row">

@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../AuthContext/AuthContex";
 import { toast } from "react-toastify";
+import Loading from "../Components/Loading";
+// import { useLocation, useNavigate } from "react-router";
 
 const AddListing = () => {
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
+
   const handleAddListing = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -40,6 +44,14 @@ const AddListing = () => {
         e.target.reset();
       });
   };
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col">
@@ -152,7 +164,9 @@ const AddListing = () => {
                   </div>
                 </div>
 
-                <button className="btn btn-neutral hover:bg-black mt-4">Add Listing</button>
+                <button className="btn btn-neutral hover:bg-black mt-4">
+                  Add Listing
+                </button>
               </fieldset>
             </form>
           </div>

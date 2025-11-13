@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Components/Product";
+import Loading from "../Components/Loading";
 
 const PetsAndSupplies = () => {
   const categories = ["All", "Pets", "Food", "Accessories", "Care Products"];
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const url =
@@ -16,6 +18,14 @@ const PetsAndSupplies = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [selectedCategory]);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="max-w-7xl mx-auto mt-10 mb-15">
