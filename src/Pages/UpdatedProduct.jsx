@@ -44,14 +44,14 @@ const UpdatedProduct = () => {
       .then((data) => {
         console.log("after posting the data", data);
         toast.success("Add data successfull");
-        // e.target.reset();
+        e.target.reset();
       });
   };
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero bg-base-200">
       <div className="hero-content flex-col">
         <div className="text-center lg:text-left">
-          <h1 className="text-3xl font-bold">Updata Add Listing</h1>
+          <h1 className="text-3xl font-bold">Update Add Listing</h1>
         </div>
         <div className="card bg-base-100 shrink-0 shadow-2xl">
           <div className="card-body">
@@ -164,7 +164,7 @@ const UpdatedProduct = () => {
                   </div>
                 </div>
 
-                <button className="btn btn-neutral mt-4">Add Listing</button>
+                <button className="btn btn-neutral mt-4">Update Listing</button>
               </fieldset>
             </form>
           </div>

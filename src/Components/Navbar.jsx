@@ -26,39 +26,40 @@ const Navbar = () => {
           Pets & Supplies
         </NavLink>
       </li>
-
-      <>
-        <li>
-          <NavLink
-            to="/addListing"
-            className={({ isActive }) =>
-              `hidden md:block ${isActive ? "text-red-400" : ""}`
-            }
-          >
-            Add Listing
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/myListings"
-            className={({ isActive }) =>
-              `hidden md:block ${isActive ? "text-red-400" : ""}`
-            }
-          >
-            My Listings
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/myOrders"
-            className={({ isActive }) =>
-              `hidden md:block ${isActive ? "text-red-400" : ""}`
-            }
-          >
-            My Orders
-          </NavLink>
-        </li>
-      </>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/addListing"
+              className={({ isActive }) =>
+                `hidden md:block ${isActive ? "text-red-400" : ""}`
+              }
+            >
+              Add Listing
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/myListings"
+              className={({ isActive }) =>
+                `hidden md:block ${isActive ? "text-red-400" : ""}`
+              }
+            >
+              My Listings
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/myOrders"
+              className={({ isActive }) =>
+                `hidden md:block ${isActive ? "text-red-400" : ""}`
+              }
+            >
+              My Orders
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -138,7 +139,7 @@ const Navbar = () => {
           <Link
             onClick={handleSignOut}
             to="/"
-            className="btn bg-gradient-to-br from-blue-900 via-blue-500 to-blue-500 ml-3"
+            className="btn ml-5"
           >
             Logout
           </Link>

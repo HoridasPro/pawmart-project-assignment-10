@@ -10,8 +10,16 @@ const slides = [
     tagline: "Find Your Furry Friend Today!",
   },
   {
+    image: "https://i.postimg.cc/PqyKrvHB/wonner-cat.jpg",
+    tagline: "Because Every Pet Deserves Love and Care.",
+  },
+  {
     image: "https://i.postimg.cc/HW7Vp910/pet2.jpg",
     tagline: "Adopt, Don’t Shop — Give a Pet a Home.",
+  },
+  {
+    image: "https://i.postimg.cc/8zjTbMKd/Chat-GPT-Image-Nov-13-2025-10-20-43-AM.png",
+    tagline: "Because Every Pet Deserves Love and Care.",
   },
   {
     image: "https://i.postimg.cc/6Qrxjqkv/pet3.jpg",
@@ -35,7 +43,7 @@ const BannerSlider = () => {
               <img
                 src={slide.image}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full  object-cover rounded-lg"
               />
               <div className="absolute bottom-5 bg-black bg-opacity-50 p-3 rounded-sm text-white text-lg font-bold ml-84">
                 {slide.tagline}

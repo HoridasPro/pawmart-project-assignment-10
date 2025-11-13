@@ -30,52 +30,57 @@ const MyOrders = () => {
 
   return (
     <>
-      <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-800">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>SI</th>
-              <th>Products Name</th>
-              <th>Buyer Name</th>
-              <th>price</th>
-              <th>Quantity</th>
-              <th>Address</th>
-              <th>Date</th>
-              {/* <th>Email</th> */}
-              <th>Phone</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order, index) => (
-              <tr key={order._id}>
-                <td>{index + 1}</td>
-                <td>
-                  <div className="font-bold">{order?.productName}</div>
-                </td>
-                <td>
-                  {user?.displayName}
-                  <br />
-                </td>
-                <td>
-                  {order?.price}
-                  <br />
-                </td>
-                <td>
-                  {order?.quantity}
-                  <br />
-                </td>
-                <td>
-                  <div className="text-sm opacity-50">{order?.address}</div>
-                </td>
-                <td>{order?.date}</td>
-                <td>{order?.phone}</td>
+      <title>My Orders</title>
+      {orders.length === 0 ? (
+        <p className="text-[30px] font-bold text-center mt-5">
+          Not found Orders Listings👹
+        </p>
+      ) : (
+        <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-800">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>SI</th>
+                <th>Products Name</th>
+                <th>Buyer Name</th>
+                <th>price</th>
+                <th>Quantity</th>
+                <th>Address</th>
+                <th>Date</th>
+                <th>Phone</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <DownloadOrders></DownloadOrders>
+            </thead>
+            <tbody>
+              {orders.map((order, index) => (
+                <tr key={order._id}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <div className="font-bold">{order?.productName}</div>
+                  </td>
+                  <td>
+                    {user?.displayName}
+                    <br />
+                  </td>
+                  <td>
+                    {order?.price}
+                    <br />
+                  </td>
+                  <td>
+                    {order?.quantity}
+                    <br />
+                  </td>
+                  <td>
+                    <div className="text-sm opacity-50">{order?.address}</div>
+                  </td>
+                  <td>{order?.date}</td>
+                  <td>{order?.phone}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+      {orders.length === 0 ? "" : <DownloadOrders></DownloadOrders>}
     </>
   );
 };
