@@ -15,12 +15,14 @@ import OrderListing from "../Components/OrderListing";
 // import UpdatedProduct from "../Pages/UpdatedProduct";
 import DownloadOrders from "../Components/DownloadOrdersPDF";
 import UpdatedProduct from "../Pages/UpdatedProduct";
+import ErrorPage from "../Pages/ErrorPage";
 // import OrderListing from "../Components/OrderListing";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
