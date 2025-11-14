@@ -1,7 +1,7 @@
 1. My Project PawMart : PaqMart is an online platform that connects local pet owners and buyers in one place.  
    Here, users can adopt pets, list their own pets for adoption, and buy or sell pet care products easily.
 
-2. Life Link :
+2. Live Link : https://scintillating-llamasmhoridas12-b686bf.netlify.app/
 
 3. Features:
    (i)The goal of PawMart is to build a loving and safe community for all pet lovers.
