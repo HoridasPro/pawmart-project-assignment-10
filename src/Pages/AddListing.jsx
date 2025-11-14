@@ -30,7 +30,7 @@ const AddListing = () => {
       email: email,
     };
 
-    fetch("http://localhost:3000/addListing", {
+    fetch("http://localhost:3000/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -54,7 +54,7 @@ const AddListing = () => {
   }
   return (
     <>
-    <title>Add Listing</title>
+      <title>Add Listing</title>
       <div className="hero bg-base-200">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
@@ -85,9 +85,9 @@ const AddListing = () => {
                         className="select"
                       >
                         <option>Pets</option>
-                        <option>Food</option>
+                        <option>Pet Food</option>
                         <option>Accessories</option>
-                        <option>Care Products</option>
+                        <option>Pet Care Products</option>
                       </select>
                     </fieldset>
                   </div>

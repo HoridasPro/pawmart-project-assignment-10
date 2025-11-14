@@ -3,13 +3,11 @@ import React, { useState, useEffect } from "react";
 const DarkModeToggle = () => {
   const [darkMode, setDarkMode] = useState(false);
 
-  // Local storage থেকে theme load
   useEffect(() => {
     const savedTheme = localStorage.getItem("darkMode");
     if (savedTheme === "true") setDarkMode(true);
   }, []);
 
-  // Body class পরিবর্তন
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");

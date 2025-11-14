@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-gray-900 dark:text-gray-100">
+    <div className="flex flex-col items-center justify-center dark:text-gray-100">
       <motion.h1
         className="text-5xl font-bold mb-4 mt-10"
         initial={{ opacity: 0, y: 50 }}

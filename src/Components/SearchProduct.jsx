@@ -18,7 +18,7 @@ const SearchProduct = () => {
               type="search"
               name="searchitem"
               placeholder="Search"
-              className="input w-[250px] md:w-[300px] rounded-l-full border border-gray-300 outline-none px-4 py-2"
+              className="input w-[250px] md:w-[300px] rounded-l-full border border-gray-300 outline-none px-4 py-2 outline"
             />
             <button
               type="submit"

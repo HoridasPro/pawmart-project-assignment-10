@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import Loading from "./Loading";
 
 const ProductsCategories = () => {
-  const categories = ["Pets", "Food", "Accessories", "Care Products"];
+  const categories = ["Pets", "Pet Food", "Accessories", "Pet Care Products"];
   const navigate = useNavigate();
 
   return (
