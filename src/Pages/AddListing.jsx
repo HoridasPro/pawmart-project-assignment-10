@@ -30,7 +30,7 @@ const AddListing = () => {
       email: email,
     };
 
-    fetch("http://localhost:3000/products", {
+    fetch("http://localhost:3000/addListing", {
       method: "POST",
       headers: {
         "content-type": "application/json",

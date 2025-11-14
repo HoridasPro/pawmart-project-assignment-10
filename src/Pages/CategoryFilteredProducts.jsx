@@ -25,12 +25,12 @@ const CategoryFilteredProducts = () => {
 
   return (
     <div className="max-w-7xl mx-auto mt-10">
-      <h2 className="text-[30px] mb-3 font-bold text-gray-400 text-center">
-        {categoryName} Products
+      <h2 className="text-[30px] mb-3 font-bold text-black text-center">
+        {products.length}-{categoryName} Products
       </h2>
 
       {products.length === 0 ? (
-        <p className="text-center text-gray-500">No products found </p>
+        <h1 className="text-center text-black">No products found </h1>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((productItem) => (
@@ -39,7 +39,7 @@ const CategoryFilteredProducts = () => {
         </div>
       )}
       <Link to="/">
-        <button className="cursor-pointer font-bold btm bg-black px-8 rounded-sm mb-10 py-3 flex mx-auto mt-10">
+        <button className="cursor-pointer font-bold btm text-black hover:bg-blue-400 bg-amber-100 px-8 rounded-sm mb-10 py-3 flex mx-auto mt-10">
           Back to home
         </button>
       </Link>

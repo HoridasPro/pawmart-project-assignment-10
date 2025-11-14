@@ -53,7 +53,7 @@ const Register = () => {
   const handleGoogle = () => {
     userSignInWithGoogle()
       .then((result) => {
-         const from = location.state?.from?.pathname || "/";
+        const from = location.state?.from?.pathname || "/";
         navigate(from, { replace: true });
         console.log(result.user);
         toast("Google Login Succsessfull");
@@ -75,7 +75,7 @@ const Register = () => {
           <div className="card bg-base-100 max-w-sm shrink-0 shadow-2xl">
             <div className="card-body bg-black w-full rounded-2xl">
               <form onSubmit={handleRegister}>
-                <fieldset className="fieldset">
+                <fieldset className="fieldset w-full">
                   {/* Email input field */}
                   <label className="label mt-3">Name</label>
                   <input

@@ -44,7 +44,7 @@ const ProductDetails = () => {
             {category}
           </p>
 
-          <div className="flex gap-5 md:-mt-20 flex-col md:flex-row lg:flex-row">
+          <div className="flex gap-5 flex-col md:flex-row lg:flex-row">
             <h2 className="  bg-white text-black shadow-xl p-5 px-20 font-bold text-xl hover:scale-110 transform transition duration-300 rounded-xl">
               Price:{price}
             </h2>
@@ -62,7 +62,7 @@ const ProductDetails = () => {
             <button
               onClick={handleProductOrderModal}
               type="button"
-              className="btn text-white hover:bg-black py-1 px-7 font-semibold font-semibold rounded-sm mt-3 w-full"
+              className="btn text-black bg-amber-100 hover:bg-blue-400 py-1 px-7 font-semibold font-semibold rounded-sm mt-3 w-full"
             >
               Order Now
             </button>
@@ -71,7 +71,6 @@ const ProductDetails = () => {
               className="modal modal-bottom sm:modal-middle"
             >
               <div className="modal-box bg-black text-white">
-                {/* <h3 className="font-bold text-lg">Hello!</h3> */}
                 <p className="py-4 font-bold text-2xl">Add New Listing</p>
 
                 <div className="card-body bg-base-100 shrink-0 bg-black">

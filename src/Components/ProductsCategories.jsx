@@ -15,9 +15,9 @@ const ProductsCategories = () => {
           <div
             key={item}
             onClick={() => navigate(`/category-filtered-product/${item}`)}
-            className="cursor-pointer text-center p-5 shadow-sm  rounded-2xl border-2 border-gray-400 bg-black text-black hover:scale-110 hover:bg-blue-500 transition-all duration-300"
+            className="cursor-pointer text-center p-5 shadow-sm  rounded-2xl border-2 border-gray-400 bg-amber-100 hover:bg-blue-400 hover:text-white transition-all duration-300"
           >
-            <h2 className="font-bold text-lg text-white">{item}</h2>
+            <h2 className="font-bold text-lg text-black">{item}</h2>
           </div>
         ))}
       </div>

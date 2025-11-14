@@ -51,7 +51,7 @@ const Login = () => {
           <div className="text-center lg:text-left">
             <h1 className="text-4xl font-bold">Login</h1>
           </div>
-          <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-full shrink-0 shadow-2xl bg-black">
             <div className="card-body p-10">
               <form onSubmit={handleLogin}>
                 <fieldset className="fieldset">
@@ -76,13 +76,13 @@ const Login = () => {
                     />
                     <div className="absolute left-55 top-3 text-xl"></div>
                   </div>
-                  <button className="btn btn-neutral mt-4">Login</button>
+                  <button className="btn btn-neutral mt-4 bg-amber-100 text-black">Login</button>
                 </fieldset>
               </form>
 
               <button
                 onClick={handleGoogle}
-                className="btn bg-white text-black border-[#e5e5e5] mt-1"
+                className="btn bg-amber-100 text-black border-[#e5e5e5] mt-1"
               >
                 <svg
                   aria-label="Google logo"

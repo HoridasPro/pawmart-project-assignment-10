@@ -64,7 +64,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="name"
-                    className="input"
+                    className="input bg-black"
                     placeholder="buyer name"
                     defaultValue={user?.displayName}
                     readOnly
@@ -76,7 +76,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="email"
                     name="email"
-                    className="input"
+                    className="input bg-black"
                     placeholder="email"
                     defaultValue={user?.email}
                     readOnly
@@ -91,7 +91,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="productId"
-                    className="input"
+                    className="input bg-black"
                     placeholder="productId"
                     defaultValue={productId}
                     readOnly
@@ -104,7 +104,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="productName"
-                    className="input"
+                    className="input bg-black"
                     placeholder="product name"
                     defaultValue={order?.product_name}
                     readOnly
@@ -119,7 +119,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="quantity"
-                    className="input"
+                    className="input bg-black"
                     placeholder="(if category pet, quantity 1)"
                     required
                   />
@@ -130,7 +130,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="number"
                     name="price"
-                    className="input"
+                    className="input bg-black"
                     placeholder="price"
                     defaultValue={order?.price}
                     readOnly
@@ -145,7 +145,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="address"
-                    className="input"
+                    className="input bg-black"
                     placeholder="address"
                     required
                   />
@@ -156,7 +156,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="date"
                     name="date"
-                    className="input"
+                    className="input bg-black"
                     placeholder="date"
                     required
                   />
@@ -168,7 +168,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="number"
                     name="phone"
-                    className="input"
+                    className="input bg-black"
                     placeholder="phone"
                     required
                   />
@@ -179,14 +179,16 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="additionalNotes"
-                    className="input"
+                    className="input bg-black"
                     placeholder="additional notes"
                     required
                   />
                 </div>
               </div>
 
-              <button className="btn btn-neutral mt-4">Add Listing</button>
+              <button className="btn bg-amber-100 hover:bg-blue-400 text-black mt-4">
+                Add Listing
+              </button>
             </fieldset>
           </form>
         </div>

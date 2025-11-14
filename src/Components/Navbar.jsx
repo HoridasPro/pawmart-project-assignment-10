@@ -133,18 +133,28 @@ const Navbar = () => {
               </div>
             </Link>
           ) : (
-            <Link to="/login" className="btn">
+            <Link
+              to="/login"
+              className="btn  bg-amber-100 text-black hover:bg-blue-400"
+            >
               Login
             </Link>
           )}
         </div>
 
         {user ? (
-          <Link onClick={handleSignOut} to="/" className="btn ml-5">
+          <Link
+            onClick={handleSignOut}
+            to="/"
+            className="btn ml-5 hover:bg-blue-400 bg-amber-100 text-black mr-2"
+          >
             Logout
           </Link>
         ) : (
-          <Link to="/register" className="btn">
+          <Link
+            to="/register"
+            className="btn ml-2 bg-amber-100 text-black hover:bg-blue-400"
+          >
             Register
           </Link>
         )}

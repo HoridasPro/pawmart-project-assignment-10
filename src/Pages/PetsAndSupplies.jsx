@@ -4,7 +4,13 @@ import Loading from "../Components/Loading";
 import { FaSearch } from "react-icons/fa";
 
 const PetsAndSupplies = () => {
-  const categories = ["All", "Pets", "Food", "Accessories", "Care Products"];
+  const categories = [
+    "All",
+    "Pets",
+    "Pet Food",
+    "Accessories",
+    "Pet Care Products",
+  ];
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -69,9 +75,9 @@ const PetsAndSupplies = () => {
       {/* 🔹 Filter Buttons */}
       <div className="max-w-7xl mx-auto mb-10 md:px-0 px-3">
         <h1 className="text-2xl font-bold mb-5 text-center">
-          Filter by Category
+          {products.length}-Products
         </h1>
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
+        <div className="flex md:flex-row justify-between gap-4 mb-8 flex-col">
           {categories.map((item) => (
             <button
               key={item}
@@ -91,7 +97,7 @@ const PetsAndSupplies = () => {
         {/* 🔹 Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.length === 0 ? (
-            <p className="text-[30px] font-bold text-center col-span-3">
+            <p className="text-[30px] font-bold text-center col-span-3 text-yellow-300">
               ❌ No products found
             </p>
           ) : (

@@ -32,14 +32,14 @@ const MyOrders = () => {
     <>
       <title>My Orders</title>
       {orders.length === 0 ? (
-        <p className="text-[30px] font-bold text-center mt-5">
+        <p className="text-[30px] font-bold text-center mt-30">
           Not found Orders Listings👹
         </p>
       ) : (
         <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-800">
           <table className="table">
             <thead>
-              <tr>
+              <tr className="text-white">
                 <th>SI</th>
                 <th>Products Name</th>
                 <th>Buyer Name</th>
@@ -52,7 +52,7 @@ const MyOrders = () => {
             </thead>
             <tbody>
               {orders.map((order, index) => (
-                <tr key={order._id}>
+                <tr key={order._id} className="text-white">
                   <td>{index + 1}</td>
                   <td>
                     <div className="font-bold">{order?.productName}</div>

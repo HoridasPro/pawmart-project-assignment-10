@@ -125,17 +125,20 @@ const MyListings = () => {
   };
 
   return (
-    <>
+    <div className="mt-5 mb-10">
       <title>My Listings</title>
+      <h1 className="text-black text-[30px] font-bold max-w-[1380px] mx-auto text-start]">
+        Products Listings
+      </h1>
       {products.length === 0 ? (
         <p className="text-[30px] font-bold text-center mt-10">
           ❌ Not found listings
         </p>
       ) : (
-        <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-800">
+        <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-700 rounded-sm">
           <table className="table text-white">
             <thead>
-              <tr>
+              <tr className="text-white">
                 <th>SI</th>
                 <th>Image</th>
                 <th>Name</th>
@@ -171,13 +174,13 @@ const MyListings = () => {
                   <td>
                     <button
                       onClick={() => handleDeleteOrderProduct(product._id)}
-                      className="btn btn-sm btn-error"
+                      className="btn btn-sm bg-amber-100 hover:bg-amber-300"
                     >
                       Delete
                     </button>
                     <button
                       onClick={() => handleUpdatedProduct(product)}
-                      className="btn btn-sm btn-info ml-2"
+                      className="btn btn-sm bg-blue-300 hover:bg-blue-400 ml-2"
                     >
                       Update
                     </button>
@@ -278,7 +281,7 @@ const MyListings = () => {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

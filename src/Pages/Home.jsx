@@ -26,7 +26,6 @@ const Home = () => {
   return (
     <div>
       <title>Home</title>
-      {/* <ToolTips></ToolTips> */}
       <HeroSection></HeroSection>
       <BannerSlider></BannerSlider>
       <ProductsCategories></ProductsCategories>

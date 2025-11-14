@@ -27,7 +27,7 @@ const LatestProduct = ({ latestProduct }) => {
         <div className="card-actions">
           <Link
             to={`/productDetails/${_id}`}
-            className="btn primary w-full rounded-sm"
+            className="btn text-black bg-amber-100 hover:bg-blue-400 w-full rounded-sm"
           >
             See Details
           </Link>

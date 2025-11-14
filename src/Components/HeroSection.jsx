@@ -1,4 +1,3 @@
-// HeroSection.jsx
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
@@ -35,9 +34,6 @@ const HeroSection = () => {
       >
         Your one-stop portal for pets and supplies.
       </motion.p>
-
-
-      
     </div>
   );
 };

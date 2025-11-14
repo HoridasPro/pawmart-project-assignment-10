@@ -2,29 +2,34 @@ import React from "react";
 import { Link } from "react-router";
 
 const Product = ({ product }) => {
-  const { _id, product_name,price, location,image,category } = product;
+  const { _id, product_name, price, location, image, category } = product;
 
   return (
     <div className="card bg-base-100  shadow-sm hover:scale-105 transition-all duration-300 bg-white">
       <figure>
-        <img
-          src={image}
-          alt="Shoes"
-        />
+        <img src={image} alt="Shoes" />
       </figure>
       <div className="card-body text-black hover:scal-105">
         <h2 className="card-title">{product_name}</h2>
-       <div className="flex justify-end">
-          <p><span className="font-semibold">Category : </span> {category}</p>
-          <p><span className="font-semibold">Price : </span>{price}</p>
+        <div className="flex justify-end">
+          <p>
+            <span className="font-semibold">Category : </span> {category}
+          </p>
+          <p>
+            <span className="font-semibold">Price : </span>
+            {price}
+          </p>
         </div>
-        <p><span className="font-semibold">Location : </span>{location}</p>
+        <p>
+          <span className="font-semibold">Location : </span>
+          {location}
+        </p>
         <div className="card-actions">
           <Link
             to={`/productDetails/${_id}`}
-            className="btn w-full rounded-sm hover:bg-black"
+            className="btn w-full rounded-sm text-black bg-amber-100 hover:bg-blue-400"
           >
-             See Details
+            See Details
           </Link>
         </div>
       </div>
