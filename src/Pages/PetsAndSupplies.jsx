@@ -20,8 +20,8 @@ const PetsAndSupplies = () => {
     setLoading(true);
     const url =
       selectedCategory === "All"
-        ? "http://localhost:3000/products"
-        : `http://localhost:3000/products?category=${selectedCategory}`;
+        ? "https://project-pawmart-api-server.vercel.app/products"
+        : `https://project-pawmart-api-server.vercel.app/products?category=${selectedCategory}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -60,11 +60,11 @@ const PetsAndSupplies = () => {
               type="search"
               name="searchitem"
               placeholder="Search"
-              className="input w-[250px] md:w-[350px] rounded-l-full border border-gray-300 outline-none px-4 py-2"
+              className="input w-[250px] md:w-[350px] rounded-l-full border border-gray-300  e px-4 py-2"
             />
             <button
               type="submit"
-              className="btn rounded-r-full px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white"
+              className="btn rounded-r-full px-4 py-2 bg-amber-100 hover:to-blue-400 text-black"
             >
               <FaSearch />
             </button>
@@ -82,7 +82,7 @@ const PetsAndSupplies = () => {
             <button
               key={item}
               onClick={() => setSelectedCategory(item)}
-              className={`px-6 py-3 rounded-xl border-2 border-gray-400 text-black font-medium transition-all duration-300
+              className={`px-6 py-3 rounded-xl border-2 w-full border-gray-400 text-black font-medium transition-all duration-300
                 ${
                   selectedCategory === item
                     ? "bg-blue-600 text-white scale-105"
@@ -94,7 +94,6 @@ const PetsAndSupplies = () => {
           ))}
         </div>
 
-        {/* 🔹 Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.length === 0 ? (
             <p className="text-[30px] font-bold text-center col-span-3 text-yellow-300">

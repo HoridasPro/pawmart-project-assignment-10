@@ -4,7 +4,7 @@ import LatestProduct from "./LatestProduct";
 const LatestProducts = ({ latestProductsPromise }) => {
   const latestProducts = use(latestProductsPromise);
   return (
-    <div className="max-w-[1380px] mx-auto md:mt-10 mb-20 border">
+    <div className="max-w-[1380px] mx-auto md:mt-10 mb-20">
       <h1 className="text-[30px] font-bold px-3">
         {latestProducts.length} Latests Listings
       </h1>

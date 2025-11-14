@@ -46,7 +46,7 @@ const FeaturedAdoptions = () => {
                 {pet.name}
               </h3>
               <p className="text-gray-600">{pet.breed}</p>
-              <button className="mt-4 bg-[#094359] hover:bg-[#0b6e80] text-white py-2 px-5 rounded-md transition-all">
+              <button className="cursor-pointer mt-4 bg-[#094359] hover:bg-[#0b6e80] text-white py-2 px-5 rounded-md transition-all">
                 See Details
               </button>
             </div>

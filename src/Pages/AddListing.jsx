@@ -30,7 +30,7 @@ const AddListing = () => {
       email: email,
     };
 
-    fetch("http://localhost:3000/addListing", {
+    fetch("https://project-pawmart-api-server.vercel.app/addListing", {
       method: "POST",
       headers: {
         "content-type": "application/json",

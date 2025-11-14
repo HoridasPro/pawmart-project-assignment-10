@@ -9,7 +9,7 @@ const DownloadOrders = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/orders?email=${user.email}`)
+      fetch(`https://project-pawmart-api-server.vercel.app/orders?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setOrders(data))
         .catch((err) => console.error("Orders error : ", err));
@@ -61,7 +61,7 @@ const DownloadOrders = () => {
     <div className="text-center mt-10 mb-10">
       <button
         onClick={handleDownloadPDF}
-        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 font-bold rounded-md"
+        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 font-bold rounded-md cursor-pointer"
       >
         Download Report
       </button>

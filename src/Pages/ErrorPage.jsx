@@ -1,5 +1,4 @@
 import React from "react";
-
 const ErrorPage = () => {
   return (
     <>
@@ -12,7 +11,7 @@ const ErrorPage = () => {
       <h1 className="text-center text-5xl font-bold mt-10 animate-fadeIn">
         Not Found Page
       </h1>
-      <p className="text-center text-xl font-normal text-white animate-pulse">
+      <p className="text-center text-xl font-normal text-black animate-pulse">
         Please try it again?
       </p>
       <style jsx>{`

@@ -146,7 +146,7 @@ const Navbar = () => {
           <Link
             onClick={handleSignOut}
             to="/"
-            className="btn ml-5 hover:bg-blue-400 bg-amber-100 text-black mr-2"
+            className="btn ml-5 hover:bg-blue-400 bg-amber-100 text-black "
           >
             Logout
           </Link>

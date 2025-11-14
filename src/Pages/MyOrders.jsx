@@ -9,7 +9,7 @@ const MyOrders = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/myOrders?email=${user?.email}`)
+      fetch(`https://project-pawmart-api-server.vercel.app/myOrders?email=${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           const sortedData = data.sort(
