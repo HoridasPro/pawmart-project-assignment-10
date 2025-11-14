@@ -20,8 +20,8 @@ const PetsAndSupplies = () => {
     setLoading(true);
     const url =
       selectedCategory === "All"
-        ? "https://project-pawmart-api-server.vercel.app/products"
-        : `https://project-pawmart-api-server.vercel.app/products?category=${selectedCategory}`;
+        ? "https://paw-mart-project-api-server.vercel.app/products"
+        : `https://paw-mart-project-api-server.vercel.app/products?category=${selectedCategory}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -37,7 +37,7 @@ const PetsAndSupplies = () => {
     if (!searchItem) return;
 
     setLoading(true);
-    fetch(`http://localhost:3000/search?search=${searchItem}`)
+    fetch(`https://paw-mart-project-api-server.vercel.app/search?search=${searchItem}`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log("Search error:", err))

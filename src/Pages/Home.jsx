@@ -10,7 +10,7 @@ import PetCareTips from "../Components/PetCareTips";
 // import { Tooltip } from "react-tooltip";
 
 const latestProductsPromise = fetch(
-  "https://project-pawmart-api-server.vercel.app/latest-products"
+  "https://paw-mart-project-api-server.vercel.app/latest-products"
 ).then((res) => res.json());
 
 const Home = () => {

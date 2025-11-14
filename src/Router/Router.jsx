@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       {
         path: "/productDetails/:id",
         loader: ({ params }) =>
-          fetch(`https://project-pawmart-api-server.vercel.app/products/${params.id}`),
+          fetch(`https://paw-mart-project-api-server.vercel.app/products/${params.id}`),
         element: (
           <PrivateRoute>
             <ProductDetails />,
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
       {
         path: "/orderListing/:orderListing",
         loader: ({ params }) =>
-          fetch(`https://project-pawmart-api-server.vercel.app/orders/${params.orderListing}`),
+          fetch(`https://paw-mart-project-api-server.vercel.app/orders/${params.orderListing}`),
         element: <OrderListing />,
       },
       // {

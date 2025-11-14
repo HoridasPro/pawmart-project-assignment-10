@@ -38,7 +38,7 @@ const Login = () => {
         toast("Google Login Succsessfull");
       })
       .catch((error) => {
-        console.log(error.message);
+        console.log(error);
         toast("Something is wrong");
       });
   };
@@ -80,7 +80,7 @@ const Login = () => {
                 </fieldset>
               </form>
 
-              <button
+              <button type="button"
                 onClick={handleGoogle}
                 className="btn bg-amber-100 text-black border-[#e5e5e5] mt-1"
               >

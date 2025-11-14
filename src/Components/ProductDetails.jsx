@@ -10,7 +10,7 @@ const ProductDetails = () => {
 
   const { image, product_name, price, location, email, description, category } =
     product;
-
+  console.log(product);
   const handleProductOrderModal = () => {
     orderModalRef.current.showModal();
   };

@@ -22,7 +22,7 @@ const MyListings = () => {
 
     try {
       const res = await fetch(
-        `https://project-pawmart-api-server.vercel.app/addListing?email=${user.email}`
+        `https://paw-mart-project-api-server.vercel.app/addListing?email=${user.email}`
       );
       if (!res.ok) throw new Error("Failed to fetch products");
       const data = await res.json();
@@ -59,7 +59,7 @@ const MyListings = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://project-pawmart-api-server.vercel.app/addListing/${_id}`,
+          `https://paw-mart-project-api-server.vercel.app/addListing/${_id}`,
           {
             method: "DELETE",
           }
@@ -101,7 +101,7 @@ const MyListings = () => {
 
     try {
       const res = await fetch(
-        `https://project-pawmart-api-server.vercel.app/addListing/${updateProduct._id}`,
+        `https://paw-mart-project-api-server.vercel.app/addListing/${updateProduct._id}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
