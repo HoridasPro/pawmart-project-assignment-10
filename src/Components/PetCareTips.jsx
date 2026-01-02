@@ -20,20 +20,20 @@ const PetCareTips = () => {
   ];
 
   return (
-    <section className="py-14 bg-[#f8fafc] mt-10 mb-10 max-w-[1380px] mx-auto">
-      <h2 className="text-3xl font-bold text-center text-[#094359] mb-10">
+    <section className="mb-14 max-w-[1380px] mx-auto">
+      <h2 className="text-3xl font-bold mb-5">
         🐾 Pet Care Tips
       </h2>
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+      <div className="grid md:grid-cols-3 gap-8 mx-auto">
         {tips.map((tip) => (
           <div
             key={tip.id}
-            className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            className="bg-base-100 p-6 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
-            <h3 className="text-lg font-semibold mb-3 text-[#094359]">
+            <h3 className="text-lg font-semibold mb-3">
               {tip.title}
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{tip.desc}</p>
+            <p className="text-sm leading-relaxed">{tip.desc}</p>
           </div>
         ))}
       </div>
