@@ -27,7 +27,7 @@ const Product = ({ product }) => {
         <div className="card-actions">
           <Link
             to={`/productDetails/${_id}`}
-            className="btn w-full rounded-sm text-black bg-amber-100 hover:bg-blue-400"
+            className="btn w-full rounded-sm bg-[#2563EB] text-white hover:bg-[#1D4ED8]"
           >
             See Details
           </Link>

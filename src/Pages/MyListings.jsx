@@ -177,13 +177,13 @@ const MyListings = () => {
                   <td>
                     <button
                       onClick={() => handleDeleteOrderProduct(product._id)}
-                      className="btn btn-sm bg-amber-100 hover:bg-amber-300"
+                      className="btn btn-sm hover:bg-[#B91C1C] bg-[#EF4444] text-white"
                     >
                       Delete
                     </button>
                     <button
                       onClick={() => handleUpdatedProduct(product)}
-                      className="btn btn-sm bg-blue-300 hover:bg-blue-400 ml-2"
+                      className="btn btn-sm hover:bg-[#16A34A] bg-[#22C55E] text-white ml-2"
                     >
                       Update
                     </button>
@@ -266,7 +266,10 @@ const MyListings = () => {
                       className="input input-bordered"
                       readOnly
                     />
-                    <button type="submit" className="btn btn-neutral mt-4">
+                    <button
+                      type="submit"
+                      className="btn bg-[#22C55E] text-white hover:bg-[#16A34A] mt-4 rounded-sm"
+                    >
                       Update Listing
                     </button>
                   </fieldset>

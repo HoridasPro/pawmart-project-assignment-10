@@ -64,7 +64,7 @@ const PetsAndSupplies = () => {
             />
             <button
               type="submit"
-              className="btn rounded-r-full px-4 py-2 bg-amber-100 hover:to-blue-400 text-black"
+              className="btn rounded-r-full px-4 py-2 bg-[#2563EB] text-white hover:bg-[#1D4ED8]"
             >
               <FaSearch />
             </button>
@@ -85,8 +85,8 @@ const PetsAndSupplies = () => {
               className={`px-6 py-3 rounded-xl border-2 w-full border-gray-400 text-black font-medium transition-all duration-300
                 ${
                   selectedCategory === item
-                    ? "bg-blue-600 text-white scale-105"
-                    : "bg-amber-100 hover:bg-blue-400 hover:text-white"
+                    ? "bg-[#2563EB] text-white hover:bg-[#1D4ED8]"
+                    : "bg-[#2563EB] text-white hover:bg-[#1D4ED8]"
                 }`}
             >
               {item}

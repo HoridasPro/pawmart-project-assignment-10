@@ -135,7 +135,7 @@ const Navbar = () => {
           ) : (
             <Link
               to="/login"
-              className="btn bg-[#2563EB] text-black hover:bg-blue-500"
+              className="btn bg-[#2563EB] text-white hover:bg-[#1D4ED8]"
             >
               Login
             </Link>
@@ -146,14 +146,14 @@ const Navbar = () => {
           <Link
             onClick={handleSignOut}
             to="/"
-            className="btn ml-5 hover:bg-blue-400 bg-amber-100 text-black "
+            className="btn ml-5 hover:bg-[#B91C1C] bg-[#EF4444] text-white"
           >
             Logout
           </Link>
         ) : (
           <Link
             to="/register"
-            className="btn ml-2 bg-amber-100 text-black hover:bg-blue-400"
+            className="btn ml-2 bg-[#2563EB] text-white hover:bg-[#1D4ED8]"
           >
             Register
           </Link>

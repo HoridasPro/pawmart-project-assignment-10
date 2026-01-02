@@ -62,7 +62,7 @@ const ProductDetails = () => {
             <button
               onClick={handleProductOrderModal}
               type="button"
-              className="btn text-black bg-amber-100 hover:bg-blue-400 py-1 px-7 font-semibold font-semibold rounded-sm mt-3 w-full"
+              className="btn rounded-sm text-white bg-[#2563EB] hover:bg-[#1D4ED8] py-1 px-7 font-semibold mt-3 w-full"
             >
               Order Now
             </button>

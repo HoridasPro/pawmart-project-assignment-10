@@ -186,7 +186,7 @@ const OrderListing = ({ orderModalRef }) => {
                 </div>
               </div>
 
-              <button className="btn bg-amber-100 hover:bg-blue-400 text-black mt-4">
+              <button className="btn text-white bg-[#2563EB] hover:bg-[#1D4ED8] mt-4">
                 Add Listing
               </button>
             </fieldset>

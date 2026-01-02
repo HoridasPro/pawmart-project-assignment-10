@@ -166,7 +166,7 @@ const AddListing = () => {
                     </div>
                   </div>
 
-                  <button className="btn btn-neutral hover:bg-black mt-4">
+                  <button className="btn bg-[#2563EB] text-white hover:bg-[#1D4ED8] mt-4">
                     Add Listing
                   </button>
                 </fieldset>
