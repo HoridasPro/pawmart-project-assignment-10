@@ -128,17 +128,17 @@ const MyListings = () => {
   };
 
   return (
-    <div className="mt-5 mb-10">
+    <div className="mt-10 mb-10">
       <title>My Listings</title>
-      <h1 className="text-black text-[30px] font-bold max-w-[1380px] mx-auto text-start]">
-        Products Listings
+      <h1 className="text-[30px] font-bold max-w-[1380px] mx-auto text-start]">
+        {products.length}-Products Listings
       </h1>
       {products.length === 0 ? (
-        <p className="text-[30px] font-bold text-center mt-10">
+        <p className="text-[30px] font-bold text-center">
           ❌ Not found listings
         </p>
       ) : (
-        <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-700 rounded-sm">
+        <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-5 bg-gray-700 rounded-sm">
           <table className="table text-white">
             <thead>
               <tr className="text-white">

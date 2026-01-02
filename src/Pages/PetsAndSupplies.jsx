@@ -53,7 +53,7 @@ const PetsAndSupplies = () => {
       <title>Pets & Supplies</title>
 
       {/* 🔍 Search Bar */}
-      <div className="flex justify-center mt-6 mb-4">
+      <div className="flex justify-center mt-10 mb-4">
         <form onSubmit={handleSearch}>
           <div className="relative flex items-center">
             <input
@@ -74,7 +74,7 @@ const PetsAndSupplies = () => {
 
       {/* 🔹 Filter Buttons */}
       <div className="max-w-7xl mx-auto mb-10 md:px-0 px-3">
-        <h1 className="text-2xl font-bold mb-5 text-center">
+        <h1 className="text-2xl font-bold mb-5">
           {products.length}-Products
         </h1>
         <div className="flex md:flex-row justify-between gap-4 mb-8 flex-col">

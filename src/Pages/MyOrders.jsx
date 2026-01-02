@@ -31,10 +31,12 @@ const MyOrders = () => {
   return (
     <>
       <title>My Orders</title>
+      <h2 className="max-w-[1380px] mx-auto mt-10 text-[30px] font-bold">{orders.length}-Orders Listing</h2>
       {orders.length === 0 ? (
         <p className="text-[30px] font-bold text-center mt-30">
           Not found Orders Listings👹
         </p>
+        
       ) : (
         <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-800">
           <table className="table">

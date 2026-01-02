@@ -55,7 +55,7 @@ const AddListing = () => {
   return (
     <>
       <title>Add Listing</title>
-      <div className="hero bg-base-200">
+      <div className="hero py-10">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Add Listing</h1>

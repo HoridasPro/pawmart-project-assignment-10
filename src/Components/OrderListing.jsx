@@ -56,15 +56,15 @@ const OrderListing = ({ orderModalRef }) => {
     <div>
       <div>
         <div>
-          <form onSubmit={handlOrderSubmit}>
-            <fieldset className="fieldset grid gap-10 ">
-              <div className="flex gap-5 items-center">
-                <div className="">
+          <form onSubmit={handlOrderSubmit} className="text-black">
+            <fieldset className="fieldset grid gap-10 text-black">
+              <div className="flex gap-5 items-center text-black">
+                <div className="text-black">
                   <label className="label">Buyer Name</label>
                   <input
                     type="text"
                     name="name"
-                    className="input bg-black"
+                    className="input"
                     placeholder="buyer name"
                     defaultValue={user?.displayName}
                     readOnly
@@ -76,7 +76,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="email"
                     name="email"
-                    className="input bg-black"
+                    className="input"
                     placeholder="email"
                     defaultValue={user?.email}
                     readOnly
@@ -91,7 +91,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="productId"
-                    className="input bg-black"
+                    className="input"
                     placeholder="productId"
                     defaultValue={productId}
                     readOnly
@@ -104,7 +104,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="productName"
-                    className="input bg-black"
+                    className="input"
                     placeholder="product name"
                     defaultValue={order?.product_name}
                     readOnly
@@ -119,7 +119,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="quantity"
-                    className="input bg-black"
+                    className="input"
                     placeholder="(if category pet, quantity 1)"
                     required
                   />
@@ -130,7 +130,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="number"
                     name="price"
-                    className="input bg-black"
+                    className="input"
                     placeholder="price"
                     defaultValue={order?.price}
                     readOnly
@@ -145,7 +145,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="address"
-                    className="input bg-black"
+                    className="input"
                     placeholder="address"
                     required
                   />
@@ -156,7 +156,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="date"
                     name="date"
-                    className="input bg-black"
+                    className="input"
                     placeholder="date"
                     required
                   />
@@ -168,7 +168,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="number"
                     name="phone"
-                    className="input bg-black"
+                    className="input"
                     placeholder="phone"
                     required
                   />
@@ -179,7 +179,7 @@ const OrderListing = ({ orderModalRef }) => {
                   <input
                     type="text"
                     name="additionalNotes"
-                    className="input bg-black"
+                    className="input"
                     placeholder="additional notes"
                     required
                   />
