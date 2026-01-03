@@ -8,6 +8,7 @@ import FeaturedAdoptions from "../Components/FeaturedAdoptions";
 import PetCareTips from "../Components/PetCareTips";
 // import ToolTips from "../Components/ToolTips";
 // import { Tooltip } from "react-tooltip";
+import Services from "./../Components/Services";
 
 const latestProductsPromise = fetch(
   "https://paw-mart-project-api-server.vercel.app/latest-products"
@@ -34,6 +35,7 @@ const Home = () => {
       ></LatestProducts>
       <FeaturedAdoptions></FeaturedAdoptions>
       <PetCareTips></PetCareTips>
+      <Services></Services>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
+import { Link } from "react-router";
 
 const slides = [
   {
@@ -30,7 +31,7 @@ const slides = [
 
 const BannerSlider = () => {
   return (
-    <div className="w-full max-w-[1380px] mx-auto mt-5 px-3 md:px-0">
+    <div className="max-w-[1380px] mx-auto mt-5 px-3 md:px-0">
       <Swiper
         modules={[Autoplay]}
         spaceBetween={30}
@@ -40,14 +41,44 @@ const BannerSlider = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full md:h-125">
-              <img
-                src={slide.image}
-                alt={`Slide ${index + 1}`}
-                className="w-full object-cover"
-              />
-              <div className="absolute bottom-5 bg-opacity-50 p-3 text-white text-lg font-bold md:ml-130 ml-5 text-[20px">
+            <div className="relative ">
+              <figure className="w-full h-[80vh]">
+                <img
+                  src={slide.image}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full object-cover"
+                />
+              </figure>
+
+              {/* Tagline */}
+              <div
+                className="absolute bottom-24 left-5 md:left-12
+                              bg-black/50 px-4 py-2 rounded
+                              text-white text-lg font-bold"
+              >
                 {slide.tagline}
+              </div>
+
+              {/* CTA Button */}
+              <div className="absolute bottom-10 left-5 md:left-12">
+                <Link to="/petsAndSupplies">
+                  <button
+                    className="bg-indigo-600 hover:bg-indigo-700
+                               text-white font-semibold
+                               px-6 py-3 rounded-lg
+                               transition duration-300 shadow-lg cursor-pointer"
+                  >
+                    Browse Pets
+                  </button>
+                </Link>
+              </div>
+
+              {/* Scroll hint (optional but recommended) */}
+              <div
+                className="absolute bottom-4 left-1/2 -translate-x-1/2
+                              text-red-500 text-3xl animate-bounce text-[60px]"
+              >
+                ↓
               </div>
             </div>
           </SwiperSlide>

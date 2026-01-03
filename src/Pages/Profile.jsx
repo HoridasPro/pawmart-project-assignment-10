@@ -10,8 +10,8 @@ const Profile = () => {
     <div>
       <title>Profile</title>
       {user ? (
-        <div className="flex w-11/12 mx-auto justify-evenly bg-[#1a191d] shadow-2xl mt-10 mb-10 p-10 items-center rounded-2xl flex-col md:flex-row lg:flex-row">
-          <div className=" bg-[#73d4892f] px-15 py-10 rounded-2xl ">
+        <div className="flex w-11/12 mx-auto justify-evenly bg-base-100 shadow-2xl mt-10 mb-10 p-10 items-center rounded-2xl flex-col md:flex-row lg:flex-row">
+          <div className=" bg-[#73d4892f] px-15 py-10 rounded-2xl">
             <img
               className="rounded-full h-[250px] w-[250px] flex mx-auto"
               src={user?.photoURL}
@@ -24,7 +24,7 @@ const Profile = () => {
           </div>
         </div>
       ) : (
-        <Link to="/login"></Link>
+        <Link to="/"></Link>
       )}
     </div>
   );

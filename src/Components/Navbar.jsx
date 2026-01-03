@@ -19,26 +19,42 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={({ isActive }) => `${isActive ? "text-white" : ""}`}
+          className={({ isActive }) =>
+            `${isActive ? "text-white" : "text-black"}`
+          }
         >
           Home
         </NavLink>
       </li>
 
-      {/* {user && (
+      {user && (
         <>
           <li>
             <NavLink
               to="/petsAndSupplies"
-              className={({ isActive }) => `${isActive ? "text-red-400" : ""}`}
+              className={({ isActive }) =>
+                `${isActive ? "text-white" : "text-black"}`
+              }
             >
               Pets & Supplies
             </NavLink>
           </li>
           <li>
             <NavLink
+              to="/addListing"
+              className={({ isActive }) =>
+                `${isActive ? "text-white" : "text-black"}`
+              }
+            >
+              Add Listing
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/myListings"
-              className={({ isActive }) => `${isActive ? "text-red-400" : ""}`}
+              className={({ isActive }) =>
+                `${isActive ? "text-white" : "text-black"}`
+              }
             >
               My Listings
             </NavLink>
@@ -46,13 +62,15 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/myOrders"
-              className={({ isActive }) => `${isActive ? "text-red-400" : ""}`}
+              className={({ isActive }) =>
+                `${isActive ? "text-white" : "text-black"}`
+              }
             >
               My Orders
             </NavLink>
           </li>
         </>
-      )} */}
+      )}
     </>
   );
 
@@ -82,7 +100,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="sticky top-0 z-50 bg-white shadow">
-        <div className="navbar bg-[#2563EB] text-white shadow-sm py-3 px-5">
+        <div className="navbar bg-[#2563EB] shadow-sm py-3 px-5">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -115,7 +133,11 @@ const Navbar = () => {
             <figure className="w-14  ">
               <img src={logoImg} alt="" />
             </figure>
-            <a className="text-xl font-bold">PawMart</a>
+            {theme === "dark" ? (
+              <a className="text-xl text-white font-bold">PawMart</a>
+            ) : (
+              <a className="text-xl text-white font-bold">PawMart</a>
+            )}
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -135,7 +157,7 @@ const Navbar = () => {
 
                   {/* Hover name */}
                   <span
-                    className="absolute top-10 -left -translate-x-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 
+                    className="absolute top-10 -left -translate-x-1/2 bg-gray-900 text-white text-sm px-2 py-1 rounded opacity-0 
                  group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-50"
                   >
                     {user.displayName || "Unknown User"}
@@ -144,7 +166,7 @@ const Navbar = () => {
                   {/* Dropdown menu */}
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu bg-base-100 text-black rounded-box w-52 shadow mt-3 z-50"
+                    className="dropdown-content menu bg-base-100 rounded-box w-52 shadow mt-3 z-50"
                   >
                     <li>
                       <div className="flex items-center gap-2 px-2 py-1 rounded">
@@ -152,7 +174,7 @@ const Navbar = () => {
                         <Link to="/profile">Profile</Link>
                       </div>
                     </li>
-                    <li>
+                    {/* <li>
                       <div className="flex items-center gap-2 px-2 py-1 rounded">
                         <FiPlus className="text-indigo-600" size={20} />
                         <Link to="/addListing" className="flex-1">
@@ -178,7 +200,7 @@ const Navbar = () => {
                         <FiShoppingCart className="text-indigo-600" size={20} />
                         <Link to="/myOrders">My Orders</Link>
                       </div>
-                    </li>
+                    </li> */}
                     <li>
                       <button
                         onClick={() =>
@@ -200,7 +222,6 @@ const Navbar = () => {
                         ) : (
                           <>
                             <li>
-                              {" "}
                               <div className="flex mr-16">
                                 <BiMoon className="text-indigo-600" size={22} />
                                 <span className="text-sm">Dark Mode</span>
@@ -215,7 +236,7 @@ const Navbar = () => {
                         <FiLogOut className="text-indigo-600" size={20} />
                         <button
                           onClick={handleSignOut}
-                          className="flex-1 text-red-500 text-left cursor-pointer"
+                          className="flex-1 text-left cursor-pointer"
                         >
                           Logout
                         </button>
