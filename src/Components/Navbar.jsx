@@ -99,7 +99,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-white shadow">
+      <nav className="sticky top-0 z-50 bg-base-100 shadow">
         <div className="navbar bg-[#2563EB] shadow-sm py-3 px-5">
           <div className="navbar-start">
             <div className="dropdown">

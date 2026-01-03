@@ -1,131 +1,122 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import AuthContext from "../AuthContext/AuthContex";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const { userSignInWithGoogle, userLogin } = useContext(AuthContext);
+  const { userLogin, userSignInWithGoogle } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  // Demo button auto-fill
+  const fillDemoUser = () => {
+    const savedUser = localStorage.getItem("demoUser");
+    if (!savedUser) {
+      toast.error("No demo user found. Please register first.");
+      return;
+    }
+    const { email, password } = JSON.parse(savedUser);
+    setEmail(email);
+    setPassword(password);
+    toast.info("Demo user credentials filled");
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+    if (!email || !password) {
+      toast.error("Email & Password are required");
+      return;
+    }
+
     userLogin(email, password)
-      .then((result) => {
+      .then(() => {
         const from = location.state?.from?.pathname || "/";
         navigate(from, { replace: true });
-        toast("Login successfull");
-        console.log(result.user);
+        toast.success("Login successful");
       })
-      .catch((error) => {
-        toast("Invalid email or password");
-        console.log(error.message);
+      .catch(() => {
+        toast.error("Invalid email or password");
       });
   };
 
-  const handleGoogle = () => {
+  // ✅ Google login
+  const handleGoogleLogin = () => {
     userSignInWithGoogle()
-      .then((result) => {
+      .then(() => {
         const from = location.state?.from?.pathname || "/";
         navigate(from, { replace: true });
-        console.log(result.user);
-        toast("Google Login Succsessfull");
+        toast.success("Google Login Successful");
       })
-      .catch((error) => {
-        console.log(error);
-        toast("Something is wrong");
+      .catch(() => {
+        toast.error("Something went wrong with Google login");
       });
   };
 
   return (
-    <>
-      <title>Login</title>
-      <div className="hero min-h-screen">
-        <div className="hero-content flex-col lg:flex-col">
-          <div className="text-center lg:text-left">
-            <h1 className="text-4xl font-bold">Login</h1>
-          </div>
-          <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-            <div className="card-body p-10">
-              <form onSubmit={handleLogin}>
-                <fieldset className="fieldset">
-                  {/* Email input field */}
-                  <label className="label">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    className="input w-full"
-                    placeholder="Email"
-                    required
-                  />
-                  {/* Password input field */}
-                  <label className="label">Password</label>
-                  <div className="relative">
-                    <input
-                      type="password"
-                      name="password"
-                      className="input"
-                      placeholder="Password"
-                      required
-                    />
-                    <div className="absolute left-55 top-3 text-xl"></div>
-                  </div>
-                  <button className="btn mt-4 bg-[#2563EB] text-white hover:bg-[#1D4ED8]">
-                    Login
-                  </button>
-                </fieldset>
-              </form>
+    <div className="hero min-h-screen">
+      <div className="hero-content flex-col">
+        <h1 className="text-4xl font-bold">Login</h1>
 
-              <button
-                type="button"
-                onClick={handleGoogle}
-                className="btn mt-1"
+        <div className="card w-full max-w-md shadow-xl p-6">
+          {/* Demo User */}
+          <button
+            onClick={fillDemoUser}
+            className="btn btn-outline w-full mb-4"
+          >
+            Demo User (Auto-fill)
+          </button>
+
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Email"
+              className="input w-full mb-2"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <div className="relative mb-2">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="input w-full pr-10"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span
+                className="absolute right-3 top-3 cursor-pointer text-gray-500"
+                onClick={() => setShowPassword(!showPassword)}
               >
-                <svg
-                  aria-label="Google logo"
-                  width="16"
-                  height="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <g>
-                    <path d="m0 0H512V512H0" fill="#fff"></path>
-                    <path
-                      fill="#34a853"
-                      d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"
-                    ></path>
-                    <path
-                      fill="#4285f4"
-                      d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"
-                    ></path>
-                    <path
-                      fill="#fbbc02"
-                      d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"
-                    ></path>
-                    <path
-                      fill="#ea4335"
-                      d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"
-                    ></path>
-                  </g>
-                </svg>
-                Login with Google
-              </button>
-              <p>
-                Don't have an account?
-                <Link
-                  className="text-blue-500 hover:text-blue-800 font-bold text-xl ml-2"
-                  to="/register"
-                >
-                  Register
-                </Link>
-              </p>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
-          </div>
+            <button className="btn w-full bg-blue-600 text-white hover:bg-blue-700 mb-2">
+              Login
+            </button>
+          </form>
+
+          {/* Google login */}
+          <button
+            onClick={handleGoogleLogin}
+            className="btn w-full bg-red-600 text-white hover:bg-red-700 mb-4"
+          >
+            <FcGoogle className="text-xl" /> Login with Google
+          </button>
+
+          <p className="mt-4 text-center">
+            Don't have an account?
+            <Link className="text-blue-500 font-bold ml-2" to="/register">
+              Register
+            </Link>
+          </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

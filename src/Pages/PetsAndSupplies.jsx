@@ -37,7 +37,9 @@ const PetsAndSupplies = () => {
     if (!searchItem) return;
 
     setLoading(true);
-    fetch(`https://paw-mart-project-api-server.vercel.app/search?search=${searchItem}`)
+    fetch(
+      `https://paw-mart-project-api-server.vercel.app/search?search=${searchItem}`
+    )
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log("Search error:", err))
@@ -74,9 +76,7 @@ const PetsAndSupplies = () => {
 
       {/* 🔹 Filter Buttons */}
       <div className="max-w-7xl mx-auto mb-10 md:px-0 px-3">
-        <h1 className="text-2xl font-bold mb-5">
-          {products.length}-Products
-        </h1>
+        <h1 className="text-2xl font-bold mb-5">{products.length}-Products</h1>
         <div className="flex md:flex-row justify-between gap-4 mb-8 flex-col">
           {categories.map((item) => (
             <button
@@ -94,7 +94,7 @@ const PetsAndSupplies = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.length === 0 ? (
             <p className="text-[30px] font-bold text-center col-span-3 text-yellow-300">
               ❌ No products found

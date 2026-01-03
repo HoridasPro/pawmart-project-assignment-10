@@ -9,6 +9,10 @@ import PetCareTips from "../Components/PetCareTips";
 // import ToolTips from "../Components/ToolTips";
 // import { Tooltip } from "react-tooltip";
 import Services from "./../Components/Services";
+import HowItWorks from "./../Components/HowItWorks";
+import WhyChoosePawMart from "./../Components/WhyChoosePawMart";
+import Testimonials from './../Components/Testimonials';
+import NewsletterContact from './../Components/NewsLetterContact';
 
 const latestProductsPromise = fetch(
   "https://paw-mart-project-api-server.vercel.app/latest-products"
@@ -29,13 +33,17 @@ const Home = () => {
       <title>Home</title>
       <HeroSection></HeroSection>
       <BannerSlider></BannerSlider>
+      <Services></Services>
       <ProductsCategories></ProductsCategories>
+      <FeaturedAdoptions></FeaturedAdoptions>
       <LatestProducts
         latestProductsPromise={latestProductsPromise}
       ></LatestProducts>
-      <FeaturedAdoptions></FeaturedAdoptions>
+      <HowItWorks></HowItWorks>
       <PetCareTips></PetCareTips>
-      <Services></Services>
+      <WhyChoosePawMart></WhyChoosePawMart>
+      <Testimonials></Testimonials>
+      <NewsletterContact></NewsletterContact>
     </div>
   );
 };

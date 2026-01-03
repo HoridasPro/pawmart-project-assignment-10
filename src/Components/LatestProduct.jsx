@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 
 const LatestProduct = ({ latestProduct }) => {
-  const { _id, product_name, category, price, location, image } = latestProduct;
+  const { _id, product_name, category, price, image } = latestProduct;
 
   return (
     <div className="card bg-base-100 shadow-sm hover:scale-105 transition-all duration-300">
@@ -25,7 +25,7 @@ const LatestProduct = ({ latestProduct }) => {
             to={`/productDetails/${_id}`}
             className="btn bg-[#2563EB] text-white hover:bg-[#1D4ED8] w-full rounded-sm"
           >
-            See Details
+            View Details
           </Link>
         </div>
       </div>

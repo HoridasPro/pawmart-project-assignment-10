@@ -21,10 +21,10 @@ const PetCareTips = () => {
 
   return (
     <section className="mb-14 max-w-[1380px] mx-auto">
-      <h2 className="text-3xl font-bold mb-5">
+      <h2 className="text-3xl font-bold mb-5 text-center">
         🐾 Pet Care Tips
       </h2>
-      <div className="grid md:grid-cols-3 gap-8 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mx-auto">
         {tips.map((tip) => (
           <div
             key={tip.id}

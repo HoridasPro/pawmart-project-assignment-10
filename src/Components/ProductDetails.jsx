@@ -11,7 +11,6 @@ const ProductDetails = () => {
 
   const { image, product_name, price, location, email, description, category } =
     product;
-  console.log(product);
   const handleProductOrderModal = () => {
     orderModalRef.current.showModal();
   };
@@ -58,6 +57,7 @@ const ProductDetails = () => {
             <span className="text-lg font-semibold">Description : </span>
             {description}
           </p>
+         {/* <p>{new Date()}</p> */}
 
           <div>
             <button

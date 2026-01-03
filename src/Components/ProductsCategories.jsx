@@ -7,8 +7,8 @@ const ProductsCategories = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="max-w-[1380px] mx-auto px-2 md:mt-20">
-      <h1 className="text-[30px] font-bold">4 Category Carts</h1>
+    <div className="max-w-[1380px] mx-auto px-2 md:mt-10">
+      <h1 className="text-[30px] font-bold text-center">4 Categories Products</h1>
 
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
         {categories.map((item) => (
