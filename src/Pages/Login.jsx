@@ -12,16 +12,12 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    // console.log(email, password);
     userLogin(email, password)
       .then((result) => {
         const from = location.state?.from?.pathname || "/";
         navigate(from, { replace: true });
         toast("Login successfull");
         console.log(result.user);
-        // setTimeout(() => {
-        //   window.location.reload();
-        // }, 5000);
       })
       .catch((error) => {
         toast("Invalid email or password");
@@ -32,7 +28,7 @@ const Login = () => {
   const handleGoogle = () => {
     userSignInWithGoogle()
       .then((result) => {
-         const from = location.state?.from?.pathname || "/";
+        const from = location.state?.from?.pathname || "/";
         navigate(from, { replace: true });
         console.log(result.user);
         toast("Google Login Succsessfull");
@@ -46,12 +42,12 @@ const Login = () => {
   return (
     <>
       <title>Login</title>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-col">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl font-bold">Login</h1>
           </div>
-          <div className="card bg-base-100 w-full shrink-0 shadow-2xl bg-black">
+          <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
             <div className="card-body p-10">
               <form onSubmit={handleLogin}>
                 <fieldset className="fieldset">
@@ -76,13 +72,16 @@ const Login = () => {
                     />
                     <div className="absolute left-55 top-3 text-xl"></div>
                   </div>
-                  <button className="btn btn-neutral mt-4 bg-amber-100 text-black">Login</button>
+                  <button className="btn mt-4 bg-[#2563EB] text-white hover:bg-[#1D4ED8]">
+                    Login
+                  </button>
                 </fieldset>
               </form>
 
-              <button type="button"
+              <button
+                type="button"
                 onClick={handleGoogle}
-                className="btn bg-amber-100 text-black border-[#e5e5e5] mt-1"
+                className="btn mt-1"
               >
                 <svg
                   aria-label="Google logo"

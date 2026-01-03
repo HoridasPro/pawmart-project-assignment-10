@@ -72,7 +72,6 @@ const AddListing = () => {
                         name="name"
                         className="input"
                         placeholder="name"
-                        // defaultValue={}
                         required
                       />
                     </div>

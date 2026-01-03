@@ -67,13 +67,13 @@ const Register = () => {
   return (
     <>
       <title>SignUp</title>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-col">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl font-bold">Register</h1>
           </div>
           <div className="card bg-base-100 max-w-sm shrink-0 shadow-2xl">
-            <div className="card-body bg-black w-full rounded-2xl">
+            <div className="card-body bg-base-100 w-full rounded-2xl">
               <form onSubmit={handleRegister}>
                 <fieldset className="fieldset w-full">
                   {/* Email input field */}
@@ -116,14 +116,13 @@ const Register = () => {
                     />
                     <div className="absolute left-55 top-3 text-xl"></div>
                   </div>
-                  <button className="btn mt-4">Register</button>
+                  <button className="btn mt-4 bg-[#2563EB] text-white hover:bg-[#1D4ED8]">
+                    Register
+                  </button>
                 </fieldset>
               </form>
 
-              <button
-                onClick={handleGoogle}
-                className="btn bg-white text-black border-[#e5e5e5] mt-1"
-              >
+              <button onClick={handleGoogle} className="btn bg-base-100   mt-1">
                 <svg
                   aria-label="Google logo"
                   width="16"

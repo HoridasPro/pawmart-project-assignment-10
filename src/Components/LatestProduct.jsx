@@ -16,15 +16,11 @@ const LatestProduct = ({ latestProduct }) => {
             <span className="font-semibold">Category : </span> {category}
           </p>
           <p>
-            <span className="font-semibold">Price : </span>
-            {price}
+            <span className="font-semibold"></span>
+            {price} $
           </p>
         </div>
-        <p>
-          <span className="font-semibold">Location : </span>
-          {location}
-        </p>
-        <div className="card-actions">
+        <div className="card-actions mt-5">
           <Link
             to={`/productDetails/${_id}`}
             className="btn bg-[#2563EB] text-white hover:bg-[#1D4ED8] w-full rounded-sm"

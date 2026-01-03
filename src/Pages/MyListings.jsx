@@ -138,10 +138,10 @@ const MyListings = () => {
           ❌ Not found listings
         </p>
       ) : (
-        <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-5 bg-gray-700 rounded-sm">
-          <table className="table text-white">
+        <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-5 rounded-sm bg-base-100">
+          <table className="table">
             <thead>
-              <tr className="text-white">
+              <tr>
                 <th>SI</th>
                 <th>Image</th>
                 <th>Name</th>

@@ -9,7 +9,9 @@ const MyOrders = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://paw-mart-project-api-server.vercel.app/myOrders?email=${user?.email}`)
+      fetch(
+        `https://paw-mart-project-api-server.vercel.app/myOrders?email=${user?.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           const sortedData = data.sort(
@@ -31,17 +33,18 @@ const MyOrders = () => {
   return (
     <>
       <title>My Orders</title>
-      <h2 className="max-w-[1380px] mx-auto mt-10 text-[30px] font-bold">{orders.length}-Orders Listing</h2>
+      <h2 className="max-w-[1380px] mx-auto mt-10 text-[30px] font-bold">
+        {orders.length}-Orders Listing
+      </h2>
       {orders.length === 0 ? (
         <p className="text-[30px] font-bold text-center mt-30">
           Not found Orders Listings👹
         </p>
-        
       ) : (
-        <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-gray-800">
+        <div className="overflow-x-auto flex mx-auto max-w-[1380px] mt-10 bg-base-100 rounded-sm">
           <table className="table">
             <thead>
-              <tr className="text-white">
+              <tr>
                 <th>SI</th>
                 <th>Products Name</th>
                 <th>Buyer Name</th>
@@ -54,10 +57,10 @@ const MyOrders = () => {
             </thead>
             <tbody>
               {orders.map((order, index) => (
-                <tr key={order._id} className="text-white">
+                <tr key={order._id}>
                   <td>{index + 1}</td>
                   <td>
-                    <div className="font-bold">{order?.productName}</div>
+                    <div>{order?.productName}</div>
                   </td>
                   <td>
                     {user?.displayName}
@@ -72,7 +75,7 @@ const MyOrders = () => {
                     <br />
                   </td>
                   <td>
-                    <div className="text-sm opacity-50">{order?.address}</div>
+                    <div>{order?.address}</div>
                   </td>
                   <td>{order?.date}</td>
                   <td>{order?.phone}</td>

@@ -24,9 +24,7 @@ const Navbar = () => {
           Pets & Supplies
         </NavLink>
       </li>
-      {user && (
-        <>
-          <li>
+        <li>
             <NavLink
               to="/addListing"
               className={({ isActive }) => `${isActive ? "text-red-400" : ""}`}
@@ -34,6 +32,9 @@ const Navbar = () => {
               Add Listing
             </NavLink>
           </li>
+      {user && (
+        <>
+        
           <li>
             <NavLink
               to="/myListings"
