@@ -3,15 +3,9 @@ import { Link, NavLink } from "react-router";
 import logoImg from "../assets/PawMart.png";
 import AuthContext from "../AuthContext/AuthContex";
 import { BiMoon, BiSun } from "react-icons/bi";
-import {
-  FiList,
-  FiLogOut,
-  FiPlus,
-  FiShoppingCart,
-  FiUser,
-} from "react-icons/fi";
-import { FaPaw } from "react-icons/fa";
+import { FiLogOut, FiUser } from "react-icons/fi";
 import { MdDashboard } from "react-icons/md";
+import { RiPlayListAddFill } from "react-icons/ri";
 const Navbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
   const [theme, setTheme] = useState();
@@ -27,51 +21,6 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-
-      {/* {user && (
-        <>
-          <li>
-            <NavLink
-              to="/petsAndSupplies"
-              className={({ isActive }) =>
-                `${isActive ? "text-white" : "text-black"}`
-              }
-            >
-              Pets & Supplies
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/addListing"
-              className={({ isActive }) =>
-                `${isActive ? "text-white" : "text-black"}`
-              }
-            >
-              Add Listing
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/myListings"
-              className={({ isActive }) =>
-                `${isActive ? "text-white" : "text-black"}`
-              }
-            >
-              My Listings
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/myOrders"
-              className={({ isActive }) =>
-                `${isActive ? "text-white" : "text-black"}`
-              }
-            >
-              My Orders
-            </NavLink>
-          </li>
-        </>
-      )} */}
     </>
   );
 
@@ -171,8 +120,10 @@ const Navbar = () => {
                   >
                     <li>
                       <div className="flex items-center gap-2 px-2 py-1 rounded">
-                        <MdDashboard  className="text-indigo-600" size={20} />
-                        <Link to="/dashboardLayout/petsAndSupplies">Dashboard Home</Link>
+                        <MdDashboard className="text-indigo-600" size={20} />
+                        <Link to="/dashboardLayout/petsAndSupplies">
+                          Dashboard Home
+                        </Link>
                       </div>
                     </li>
                     <li>
@@ -181,33 +132,6 @@ const Navbar = () => {
                         <Link to="/profile">Profile</Link>
                       </div>
                     </li>
-                    {/* <li>
-                      <div className="flex items-center gap-2 px-2 py-1 rounded">
-                        <FiPlus className="text-indigo-600" size={20} />
-                        <Link to="/addListing" className="flex-1">
-                          Add Listing
-                        </Link>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="flex items-center gap-2 px-2 py-1 rounded">
-                        <FaPaw className="text-indigo-600" size={20} />
-                        <Link to="/petsAndSupplies">Pets & Supplies</Link>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div className="flex items-center gap-2 px-2 py-1 rounded">
-                        <FiList className="text-indigo-600" size={20} />
-                        <Link to="/myListings">My Listings</Link>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="flex items-center gap-2 px-2 py-1 rounded">
-                        <FiShoppingCart className="text-indigo-600" size={20} />
-                        <Link to="/myOrders">My Orders</Link>
-                      </div>
-                    </li> */}
                     <li>
                       <button
                         onClick={() =>

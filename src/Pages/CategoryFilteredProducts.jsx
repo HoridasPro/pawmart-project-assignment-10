@@ -11,7 +11,7 @@ const CategoryFilteredProducts = () => {
 
   useEffect(() => {
     fetch(
-      `https://paw-mart-project-api-server.vercel.app/products?category=${categoryName}`
+      `https://pawmart-assignment-10-woad.vercel.app/products?category=${categoryName}`
     )
       .then((res) => res.json())
       .then((data) => setProducts(data));

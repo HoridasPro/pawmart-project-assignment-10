@@ -30,7 +30,7 @@ const AddListing = () => {
       email: email,
     };
 
-    fetch("https://paw-mart-project-api-server.vercel.app/addListing", {
+    fetch("https://pawmart-assignment-10-woad.vercel.app/addListing", {
       method: "POST",
       headers: {
         "content-type": "application/json",

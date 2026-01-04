@@ -9,7 +9,7 @@ const DownloadOrders = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://paw-mart-project-api-server.vercel.app/orders?email=${user.email}`)
+      fetch(`https://pawmart-assignment-10-woad.vercel.app/orders?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setOrders(data))
         .catch((err) => console.error("Orders error : ", err));

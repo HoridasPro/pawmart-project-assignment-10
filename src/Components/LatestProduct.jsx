@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 
 const LatestProduct = ({ latestProduct }) => {
+  console.log( latestProduct);
   const { _id, product_name, category, price, image } = latestProduct;
 
   return (

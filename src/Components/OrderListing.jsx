@@ -35,7 +35,7 @@ const OrderListing = ({ orderModalRef }) => {
       additionalNotes: additionalNotes,
     };
 
-    fetch("https://paw-mart-project-api-server.vercel.app/orders", {
+    fetch("https://pawmart-assignment-10-woad.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

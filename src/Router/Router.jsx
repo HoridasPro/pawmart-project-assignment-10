@@ -12,13 +12,10 @@ import MyOrders from "../Pages/MyOrders";
 import CategoryFilteredProducts from "../Pages/CategoryFilteredProducts";
 import ProductDetails from "../Components/ProductDetails";
 import OrderListing from "../Components/OrderListing";
-// import UpdatedProduct from "../Pages/UpdatedProduct";
 import DownloadOrders from "../Components/DownloadOrdersPDF";
-// import UpdatedProduct from "../Pages/UpdatedProduct";
 import ErrorPage from "../Pages/ErrorPage";
 import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardOverview from "../Pages/DashboardOverView";
-// import OrderListing from "../Components/OrderListing";
 
 const router = createBrowserRouter([
   {
@@ -30,10 +27,6 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      // {
-      //   path: "/petsAndSupplies",
-      //   element: <PetsAndSupplies />,
-      // },
       {
         path: "register",
         element: <Register />,
@@ -46,30 +39,6 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
-      // {
-      //   path: "addListing",
-      //   element: (
-      //     <PrivateRoute>
-      //       <AddListing />
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: "myListings",
-      //   element: (
-      //     <PrivateRoute>
-      //       <MyListings />
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: "myOrders",
-      //   element: (
-      //     <PrivateRoute>
-      //       <MyOrders />
-      //     </PrivateRoute>
-      //   ),
-      // },
       {
         path: "category-filtered-product/:categoryName",
         element: <CategoryFilteredProducts />,
@@ -78,7 +47,7 @@ const router = createBrowserRouter([
         path: "productDetails/:id",
         loader: ({ params }) =>
           fetch(
-            `https://paw-mart-project-api-server.vercel.app/products/${params.id}`
+            `https://pawmart-assignment-10-woad.vercel.app/products/${params.id}`
           ),
         element: (
           <PrivateRoute>
@@ -90,16 +59,10 @@ const router = createBrowserRouter([
         path: "/orderListing/:orderListing",
         loader: ({ params }) =>
           fetch(
-            `https://paw-mart-project-api-server.vercel.app/orders/${params.orderListing}`
+            `https://pawmart-assignment-10-woad.vercel.app/orders/${params.orderListing}`
           ),
         element: <OrderListing />,
       },
-      // {
-      //   path: "/updatedProduct/:id",
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:3000/addListing/${params.id}`),
-      //   element: <UpdatedProduct />,
-      // },
       {
         path: "downloadOrders",
         element: <DownloadOrders />,

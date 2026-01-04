@@ -2,7 +2,9 @@ import React, { use } from "react";
 import LatestProduct from "./LatestProduct";
 
 const LatestProducts = ({ latestProductsPromise }) => {
+
   const latestProducts = use(latestProductsPromise);
+  console.log(latestProducts);
   return (
     <div className="max-w-[1380px] mx-auto md:mt-10">
       <h1 className="text-[30px] font-bold px-3 mb-5 text-center">

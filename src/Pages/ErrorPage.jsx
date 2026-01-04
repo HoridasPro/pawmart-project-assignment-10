@@ -14,7 +14,7 @@ const ErrorPage = () => {
       <p className="text-center text-xl font-normal text-black animate-pulse">
         Please try it again?
       </p>
-      <style jsx>{`
+      <style>{`
         @keyframes spin-slow {
           0% {
             transform: rotate(0deg);

@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import OrderListing from "./OrderListing";
 import Loading from "./Loading";
-import BannerSlider from './BannerSlider';
 
 const ProductDetails = () => {
   const orderModalRef = useRef(null);
   const product = useLoaderData();
+  console.log(product);
   const [loading, setLoading] = useState(true);
 
   const { image, product_name, price, location, email, description, category } =
@@ -57,7 +57,6 @@ const ProductDetails = () => {
             <span className="text-lg font-semibold">Description : </span>
             {description}
           </p>
-         {/* <p>{new Date()}</p> */}
 
           <div>
             <button
