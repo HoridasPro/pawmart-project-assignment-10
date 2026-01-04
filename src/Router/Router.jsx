@@ -16,6 +16,8 @@ import OrderListing from "../Components/OrderListing";
 import DownloadOrders from "../Components/DownloadOrdersPDF";
 // import UpdatedProduct from "../Pages/UpdatedProduct";
 import ErrorPage from "../Pages/ErrorPage";
+import DashboardLayout from "../Layout/DashboardLayout";
+import DashboardOverview from "../Pages/DashboardOverView";
 // import OrderListing from "../Components/OrderListing";
 
 const router = createBrowserRouter([
@@ -28,54 +30,56 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+      // {
+      //   path: "/petsAndSupplies",
+      //   element: <PetsAndSupplies />,
+      // },
       {
-        path: "/petsAndSupplies",
-        element: <PetsAndSupplies />,
-      },
-      {
-        path: "/register",
+        path: "register",
         element: <Register />,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login />,
       },
       {
-        path: "/profile",
+        path: "profile",
         element: <Profile />,
       },
+      // {
+      //   path: "addListing",
+      //   element: (
+      //     <PrivateRoute>
+      //       <AddListing />
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // {
+      //   path: "myListings",
+      //   element: (
+      //     <PrivateRoute>
+      //       <MyListings />
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // {
+      //   path: "myOrders",
+      //   element: (
+      //     <PrivateRoute>
+      //       <MyOrders />
+      //     </PrivateRoute>
+      //   ),
+      // },
       {
-        path: "/addListing",
-        element: (
-          <PrivateRoute>
-            <AddListing />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/myListings",
-        element: (
-          <PrivateRoute>
-            <MyListings />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/myOrders",
-        element: (
-          <PrivateRoute>
-            <MyOrders />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/category-filtered-product/:categoryName",
+        path: "category-filtered-product/:categoryName",
         element: <CategoryFilteredProducts />,
       },
       {
-        path: "/productDetails/:id",
+        path: "productDetails/:id",
         loader: ({ params }) =>
-          fetch(`https://paw-mart-project-api-server.vercel.app/products/${params.id}`),
+          fetch(
+            `https://paw-mart-project-api-server.vercel.app/products/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <ProductDetails />,
@@ -85,7 +89,9 @@ const router = createBrowserRouter([
       {
         path: "/orderListing/:orderListing",
         loader: ({ params }) =>
-          fetch(`https://paw-mart-project-api-server.vercel.app/orders/${params.orderListing}`),
+          fetch(
+            `https://paw-mart-project-api-server.vercel.app/orders/${params.orderListing}`
+          ),
         element: <OrderListing />,
       },
       // {
@@ -95,8 +101,54 @@ const router = createBrowserRouter([
       //   element: <UpdatedProduct />,
       // },
       {
-        path: "/downloadOrders",
+        path: "downloadOrders",
         element: <DownloadOrders />,
+      },
+    ],
+  },
+  {
+    path: "dashboardLayout",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: "petsAndSupplies",
+        element: (
+          <PrivateRoute>
+            <PetsAndSupplies></PetsAndSupplies>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "addListing",
+        element: (
+          <PrivateRoute>
+            <AddListing></AddListing>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "myListings",
+        element: (
+          <PrivateRoute>
+            <MyListings></MyListings>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "myOrders",
+        element: (
+          <PrivateRoute>
+            <MyOrders></MyOrders>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "dashboardOverview",
+        element: (
+          <PrivateRoute>
+            <DashboardOverview></DashboardOverview>
+          </PrivateRoute>
+        ),
       },
     ],
   },

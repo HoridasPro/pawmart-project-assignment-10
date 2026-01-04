@@ -11,6 +11,7 @@ import {
   FiUser,
 } from "react-icons/fi";
 import { FaPaw } from "react-icons/fa";
+import { MdDashboard } from "react-icons/md";
 const Navbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
   const [theme, setTheme] = useState();
@@ -27,7 +28,7 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      {user && (
+      {/* {user && (
         <>
           <li>
             <NavLink
@@ -70,7 +71,7 @@ const Navbar = () => {
             </NavLink>
           </li>
         </>
-      )}
+      )} */}
     </>
   );
 
@@ -168,6 +169,12 @@ const Navbar = () => {
                     tabIndex={0}
                     className="dropdown-content menu bg-base-100 rounded-box w-52 shadow mt-3 z-50"
                   >
+                    <li>
+                      <div className="flex items-center gap-2 px-2 py-1 rounded">
+                        <MdDashboard  className="text-indigo-600" size={20} />
+                        <Link to="/dashboardLayout/petsAndSupplies">Dashboard Home</Link>
+                      </div>
+                    </li>
                     <li>
                       <div className="flex items-center gap-2 px-2 py-1 rounded">
                         <FiUser className="text-indigo-600" size={20} />
