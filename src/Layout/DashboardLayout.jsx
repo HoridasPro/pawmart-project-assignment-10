@@ -3,12 +3,13 @@ import { NavLink, Link, Outlet, Navigate } from "react-router";
 // import { BiGitPullRequest } from "react-icons/bi";
 import { MdWebAsset } from "react-icons/md";
 import { RiPlayListAddFill } from "react-icons/ri";
-import { FaUsers } from "react-icons/fa";
+import { FaRegChartBar, FaUsers } from "react-icons/fa";
 
 import Navbar from "../Components/Navbar";
 import AuthContext from "../AuthContext/AuthContex";
 import { CiCircleList } from "react-icons/ci";
 import { AiOutlineOrderedList } from "react-icons/ai";
+import Footer from "../Components/Footer";
 
 const DashboardLayout = () => {
   const { user, loading } = useContext(AuthContext);
@@ -74,7 +75,7 @@ const DashboardLayout = () => {
             <ul className="menu w-full grow">
               <li>
                 <NavLink to="/dashboardLayout/dashboardOverview">
-                  <MdWebAsset className="text-xl" />
+                  <FaRegChartBar className="text-xl" />
                   <span className="is-drawer-close:hidden">
                     Dashboard Over View
                   </span>
@@ -113,6 +114,7 @@ const DashboardLayout = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 };

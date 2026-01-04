@@ -21,7 +21,7 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const name = e.target.name.value.trim();
+    const displayName = e.target.name.value.trim();
     const email = e.target.email.value.trim();
     const password = e.target.password.value.trim();
     const photoURL = e.target.photoURL.value.trim();
@@ -30,7 +30,7 @@ const Register = () => {
     let hasError = false;
 
     // Name validation
-    if (!name) {
+    if (!displayName) {
       tempErrors.name = "Name is required";
       hasError = true;
     }
@@ -70,7 +70,7 @@ const Register = () => {
     // Firebase register
     userRegister(email, password)
       .then(() => {
-        updatedProfile(name, photoURL)
+        updatedProfile(displayName, photoURL)
           .then(() => console.log("Profile updated"))
           .catch((err) => console.log(err.message));
 
@@ -163,7 +163,7 @@ const Register = () => {
           onClick={handleGoogleLogin}
           className="btn w-full bg-red-600 text-white hover:bg-red-700 mb-4"
         >
-          <FcGoogle className="text-xl"/> Login with Google
+          <FcGoogle className="text-xl" /> Login with Google
         </button>
 
         <p className="mt-4 text-center">
